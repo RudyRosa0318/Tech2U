@@ -1,36 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
+const { AddLink, addtheLink, renderLinks, deleteLink, editLink, renderEditLink } = require('../controller/links.controller')
+
+
 const pool = require('../database')
 
-router.get('/add',(req,res) =>{
-    res.render('links/add');
-});
-
-router.post('/add', async (req,res)=>{
-    const{ title, url, description} = req.body;
-    const newLink = {
-        title,
-        url,
-        description
-    };
-    // console.log(newLink);
-    await pool.query('INSERT INTO links set ?',[newLink]);
-    res.redirect('/links');
-});
-
-router.get('/', async (req,res) =>{
-    const links = await pool.query('SELECT * FROM links');
-    console.log(links);
-    res.render('links/list',{links});
-});
-
-router.get('/delete/:id', async(req,res) =>{
-    console.log(req.params.id);
-    const { id } = req.params;
-    await pool.query('DELETE FROM links WHERE ID= ?',[id]);
-    res.redirect('/links')
-});
+router.get('/add', AddLink);
+router.post('/add', addtheLink);
+router.get('/', renderLinks);
+router.get('/delete/:id', deleteLink);
+router.get('/edit/:id', renderEditLink);
 
 router.get('/edit/:id', async(req,res) =>{
     const { id } = req.params;
