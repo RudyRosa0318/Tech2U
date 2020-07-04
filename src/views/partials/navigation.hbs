@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <i class="fas fa-link"></i> Tech2U
+      <i class="fas fa-desktop"></i> Tech2U
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -9,32 +9,32 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        {{#if user}}
+        {{!-- {{#if user}} --}}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-          Links
+          | Añadir categorias 
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/links">All Links</a>
+            <a class="dropdown-item" href="/links">Todas las categorias</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/links/add">Add A Link</a>
+            <a class="dropdown-item" href="/links/add">Agregar categoria</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/profile">Profile</a>
+          <a class="nav-link" href="/profile">| Perfil |</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout</a>
+          <a class="nav-link" href="/logout">Cerrar Sesión |</a>
         </li>
-        {{else}}
+        {{!-- {{else}} --}}
         <li class="nav-item">
-          <a class="nav-link" href="/signin">SignIn</a>
+          <a class="nav-link" href="/signin">Iniciar Sesión |</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/signup">SignUp</a>
+          <a class="nav-link" href="/signup">Registro</a>
         </li>
-        {{/if}}
+        {{!-- {{/if}} --}}
       </ul>
     </div>
   </div>
