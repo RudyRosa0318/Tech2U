@@ -1,24 +1,41 @@
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-        <a class="navbar-brand" href="#">Tech2U</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-     
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Tienda</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-          </form>
-        </div>
-      </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <i class="fas fa-link"></i> Tech2U
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        {{#if user}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+          Links
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/links">All Links</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/links/add">Add A Link</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="/signin">SignIn</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">SignUp</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
