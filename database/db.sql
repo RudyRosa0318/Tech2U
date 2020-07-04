@@ -59,3 +59,34 @@ CREATE TABLE pageUsers(
 
 ALTER TABLE pageUsers
   MODIFY idUser INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
+
+--PRODUCTORDER TABLE
+CREATE TABLE orders(
+  idOrder INT(11) NOT NULL,
+  idProduct INT(11) NOT NULL,
+  price DOUBLE NOT NULL,
+  quantity INT(5) NOT NULL,
+  PRIMARY KEY (idOrder),
+  CONSTRAINT fk_product FOREIGN KEY(idProduct) REFERENCES products(idProduct)
+);
+
+ALTER TABLE orders
+  MODIFY idOrder INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
+
+
+--CART TABLE
+CREATE TABLE cart(
+  idSale INT(11) NOT NULL,
+  idOrder INT(11) NOT NULL,
+  idUser INT(11) NOT NULL,
+  discount DOUBLE NOT NULL,
+  PRIMARY KEY (idSale),
+  CONSTRAINT fk_order FOREIGN KEY(idOrder) REFERENCES orders(idOrder),
+  CONSTRAINT fk_user FOREIGN KEY(idUser) REFERENCES pageUsers(idUser)
+);
+
+ALTER TABLE cart
+  MODIFY idSale INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
+
+
+
