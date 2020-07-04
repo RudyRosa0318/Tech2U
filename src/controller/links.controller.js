@@ -31,8 +31,20 @@ res.deleteLink = async (req, res) => {
 
 res.renderEditLink = async (req, res) => {
     const { id } = req.params;
-    const links = await pool.query('SELECT * FROM links WHERE id = ?', [id]);
-    res.render('links/edit', {link: links[0]});
+    const link = await pool.query('SELECT * FROM links WHERE id = ?', [id]);
+    res.render('links/edit', {link: link[0]});
 };
+
+res.editLink = async (req,res) => {
+    const { id } = req.params;
+    const { title, description, url} = req.body; 
+    const newLink = {
+        title,
+        description,
+        url
+    };
+    await pool.query('UPDATE links set ? WHERE id = ?', [newLink, id]);
+    res.redirect('/links');
+}
 
 module.exports = res;
