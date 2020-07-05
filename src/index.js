@@ -8,8 +8,10 @@ const session = require('express-session');
 const { store } = require('express-session');
 const MySQLStore = require('express-mysql-session');
 const { database } = require('./keys');
+const passport = require('passport');
 //Inicializar
 const app = express();
+require('./lib/passport');
 
 //configuracion
 app.set('port', process.env.PORT || 4000);
@@ -32,10 +34,11 @@ app.use(session({
   saveUninitialized: false,
   store: new MySQLStore(database),
 }));
-
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 
