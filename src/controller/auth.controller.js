@@ -11,7 +11,7 @@ log.signUp = passport.authenticate('local.signup', {
     failureFlash: true
 });
 
-log.renderSignIn = (req, res, next) => {
+log.loadSignIn = (req, res, next) => {
     res.render('auth/signin');
 };
 
