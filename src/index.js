@@ -56,13 +56,13 @@ next();
 app.use(require('./routes'));
 app.use(require('./routes/auth'));
 app.use('/links', require('./routes/links'));
-
+app.use(require('./routes/index'));
 
 //Public
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-//Servidor
+//S rvidor
 app.listen(app.get('port'));
 console.log('Servidor en el  puerto', app.get('port'));
 
