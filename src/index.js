@@ -46,14 +46,13 @@ app.use(passport.session());
 //Variables globales
  app.use((req, res, next) => {
   app.locals.success = req.flash('success');
-//   app.locals.success = req.flash('success');
 next();
 });
 
 
 
 //routas
-app.use(require('./routes'));
+app.use(require('./routes/index'));
 app.use(require('./routes/auth'));
 app.use('/links', require('./routes/links'));
 
