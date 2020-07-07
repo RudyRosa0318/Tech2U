@@ -5,7 +5,7 @@ module.exports = {
         host:'localhost',
         user:'root',
         password:'',
-        database:'tech2u'
+        database:'db_tech2u'
     }
 
 };
