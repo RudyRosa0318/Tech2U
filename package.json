@@ -1,7 +1,6 @@
 {
   "name": "tutorial",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/"
@@ -26,5 +25,14 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RudyRosa0318/Tech2U.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RudyRosa0318/Tech2U/issues"
+  },
+  "homepage": "https://github.com/RudyRosa0318/Tech2U#readme",
+  "description": ""
 }
