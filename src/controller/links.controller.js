@@ -7,44 +7,44 @@ res.AddLink = (req, res) => {
 };
 
 res.addtheLink = async (req, res) => {
-  const { title, url, description } = req.body;
+  const { name, description, price } = req.body;
   const newLink = {
-    title,
-    url,
+    name,
     description,
+    price,
   };
-  await pool.query("INSERT INTO links set ?", [newLink]);
+  await pool.query("INSERT INTO product set ?", [newLink]);
   req.flash("success", "Guardado correctamente!");
   res.redirect("/links");
 };
 
 res.renderLinks = async (req, res) => {
-  const links = await pool.query("SELECT * FROM links");
+  const links = await pool.query("SELECT * FROM product");
   res.render("links/list", { links });
 };
 
 res.deleteLink = async (req, res) => {
-  const { id } = req.params;
-  await pool.query("DELETE FROM links WHERE ID = ?", [id]);
+  const { idProduct } = req.params;
+  await pool.query("DELETE FROM product WHERE idProduct = ?", [idProduct]);
   req.flash("success", "Eliminado correctamente!");
   res.redirect("/links");
 };
 
 res.renderEditLink = async (req, res) => {
-  const { id } = req.params;
-  const link = await pool.query("SELECT * FROM links WHERE id = ?", [id]);
+  const { idProduct } = req.params;
+  const link = await pool.query("SELECT * FROM product WHERE idProduct = ?", [idProduct]);
   res.render("links/edit", { link: link[0] });
 };
 
 res.editLink = async (req, res) => {
-  const { id } = req.params;
-  const { title, description, url } = req.body;
+  const { idProduct } = req.params;
+  const { name, price, description } = req.body;
   const newLink = {
-    title,
+    name,
+    price,
     description,
-    url,
   };
-  await pool.query("UPDATE links set ? WHERE id = ?", [newLink, id]);
+  await pool.query("UPDATE product set ? WHERE idProduct = ?", [newLink, idProduct]);
   req.flash("success", "Editado correctamente!");
   res.redirect("/links");
 };

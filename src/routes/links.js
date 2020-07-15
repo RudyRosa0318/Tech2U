@@ -7,9 +7,9 @@ const { AddLink, addtheLink, renderLinks, deleteLink, editLink, renderEditLink }
 router.get('/add', AddLink);
 router.post('/add', addtheLink);
 router.get('/', renderLinks);
-router.get('/delete/:id', deleteLink);
-router.get('/edit/:id', renderEditLink);
-router.post('/edit/:id',editLink);
+router.get('/delete/:idProduct', deleteLink);
+router.get('/edit/:idProduct', renderEditLink);
+router.post('/edit/:idProduct',editLink);
 
 
 
