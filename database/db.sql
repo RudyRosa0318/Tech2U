@@ -25,6 +25,7 @@ CREATE TABLE product (
   name VARCHAR(50) NOT NULL,
   description TEXT,
   price DECIMAL(10,2) NOT NULL,
+  category VARCHAR(25) NOT NULL,
   created_at timestamp NOT NULL DEFAULT current_timestamp,
   PRIMARY KEY (idProduct)
 );
