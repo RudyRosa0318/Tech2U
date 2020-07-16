@@ -26,7 +26,6 @@ CREATE TABLE product (
   description TEXT,
   price DECIMAL(10,2) NOT NULL,
   category VARCHAR(25) NOT NULL,
-  url_image VARCHAR(100) NOT NULL,
   url VARCHAR(30) NULL,
   update_at datetime NULL,
   created_at timestamp NOT NULL DEFAULT current_timestamp,
@@ -51,15 +50,7 @@ ALTER TABLE cart
   MODIFY idCart INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
 
 
-CREATE TABLE image(
-  idImage VARCHAR NOT NULL,
-  filename VARCHAR(70) NOT NULL,
-  path VARCHAR(100) NOT NULL,
-  originalname VARCHAR(60) NOT NULL,
-  mimetype VARCHAR (60) NOT NULL,
-  size INT NOT NULL,
-  PRIMARY KEY (idImage)
-);
+
 
 
 
