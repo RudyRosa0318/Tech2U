@@ -7,11 +7,12 @@ res.AddLink = (req, res) => {
 };
 
 res.addtheLink = async (req, res) => {
-  const { name, description, price } = req.body;
+  const { name, description, price,category } = req.body;
   const newLink = {
     name,
     description,
     price,
+    category,
   };
   await pool.query("INSERT INTO product set ?", [newLink]);
   req.flash("success", "Guardado correctamente!");
@@ -43,6 +44,7 @@ res.editLink = async (req, res) => {
     name,
     price,
     description,
+    category,
   };
   await pool.query("UPDATE product set ? WHERE idProduct = ?", [newLink, idProduct]);
   req.flash("success", "Editado correctamente!");

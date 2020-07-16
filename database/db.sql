@@ -8,7 +8,7 @@ CREATE TABLE users (
   password VARCHAR(60) NOT NULL,
   fullName VARCHAR(100) NOT NULL,
   userType INT(2) NOT NULL
-  idCart INT(11) NOT NULL
+  idCart INT(11) NULL
   CONSTRAINT fk_cart FOREIGN KEY(idCart) REFERENCES cart(idCart)
 );
 ALTER TABLE users
