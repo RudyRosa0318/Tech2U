@@ -4,17 +4,30 @@
 
             <div class="card">
                 <div class="card-body">
-                    <form action="/links/add" method="POST">
+                    <form action="/links/add" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <input type="text" name="name" class="form-control" placeholder="Nombre del Producto"
                                 autofocus>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="category" class="form-control" placeholder="Categoria">
+                            <select class="form-control" name="category">
+                                <option value="" disabled selected hidden>Categoría</option>
+                                <option value="Hola">1</option>
+                                <option value="Hola2">2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
                         </div>
-                        <div class="form-group">
-                            <input type="number" name="price" class="form-control" placeholder="Lps. 0.00" min="1"
-                                step="any">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">L.</span>
+                            </div>
+                            <input type="number" name="price" class="form-control" aria-label="Cantidad"
+                                placeholder="1234.00">
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
                         </div>
                         <div class="form-group">
                             <textarea name="description" rows="2" class="form-control"
@@ -27,8 +40,15 @@
                                     data-browse="Elegir">Seleccionar archivo</label>
                             </div>
                         </div> --}}
-                        <div class="form-group">
-                            <input type="url" name="imgURL" class="form-control" placeholder="URL de la Imagen">
+                        <br>
+                        <div class="form-group border-bottom-0">
+                            <input type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
+                            <div class="custom-file">
+                                <input name="imagen" type="file" class="custom-file-input" id="customFileLangHTML">
+                                <label class="custom-file-label" for="customFileLangHTML"
+                                    data-browse="Elegir">Seleccionar archivo</label>
+                                    <img class="img-thumbnail" src="{{url_image}}" alt="{{name}}" >
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -43,3 +63,11 @@
 
     </div>
 </div>
+<script>
+    $(function () {
+        $('#toggle-two').bootstrapToggle({
+            on: 'Enabled',
+            off: 'Disabled'
+        });
+    })
+</script>

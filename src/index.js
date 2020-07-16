@@ -67,10 +67,10 @@ next();
 //configurando parametros de almacenamiento multer, solo aceptara una imagen.
  app.use(multer({
    storage
- }).single('imagen'))
+ }).single('imagen'));
 
 
-//routas
+//rutas
 app.use(require('./routes/index'));
 app.use(require('./routes/auth'));
 app.use('/links', require('./routes/links'));
