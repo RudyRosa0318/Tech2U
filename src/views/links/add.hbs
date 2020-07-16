@@ -9,16 +9,7 @@
                             <input type="text" name="name" class="form-control" placeholder="Nombre del Producto"
                                 autofocus>
                         </div>
-                        <div class="form-group">
-                            <select class="form-control" name="category">
-                                <option value="" disabled selected hidden>Categoría</option>
-                                <option value="Hola">1</option>
-                                <option value="Hola2">2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
+
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">L.</span>
@@ -28,6 +19,16 @@
                             <div class="input-group-append">
                                 <span class="input-group-text">.00</span>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="category">
+                                <option value="" disabled selected hidden>Categoría</option>
+                                <option value="Hola">1</option>
+                                <option value="Hola2">2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <textarea name="description" rows="2" class="form-control"
@@ -41,18 +42,19 @@
                             </div>
                         </div> --}}
                         <br>
+                        <input id="toggle-event" type="checkbox" data-toggle="toggle" data-on="URL" data-off="Subir"
+                            data-onstyle="info" data-offstyle="success">
                         <div class="form-group border-bottom-0">
-                            <input type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
                             <div class="custom-file">
                                 <input name="imagen" type="file" class="custom-file-input" id="customFileLangHTML">
                                 <label class="custom-file-label" for="customFileLangHTML"
                                     data-browse="Elegir">Seleccionar archivo</label>
-                                    <img class="img-thumbnail" src="{{url_image}}" alt="{{name}}" >
+                                <div id="console-event"></div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-success btn-block">
+                            <button class="btn btn-success btn-block" id="boton">
                                 Guardar
                             </button>
                         </div>
@@ -60,14 +62,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
-<script>
-    $(function () {
-        $('#toggle-two').bootstrapToggle({
-            on: 'Enabled',
-            off: 'Disabled'
-        });
-    })
-</script>
