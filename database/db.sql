@@ -7,7 +7,7 @@ CREATE TABLE users (
   email VARCHAR(30) NOT NULL,
   password VARCHAR(60) NOT NULL,
   fullName VARCHAR(100) NOT NULL,
-  userType INT(2) NOT NULL,
+  userType BOOLEAN NOT NULL,
   idCart INT(11) NULL,
   CONSTRAINT fk_cart FOREIGN KEY(idCart) REFERENCES cart(idCart)
 );
@@ -35,6 +35,8 @@ CREATE TABLE product (
 ALTER TABLE product
   MODIFY idProduct INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
 
+ALTER TABLE product
+ADD imgURL VARCHAR(30);
 
 --CART TABLE
 CREATE TABLE cart(

@@ -4,10 +4,13 @@
 
             <div class="card">
                 <div class="card-body">
-                    <form action="/links/add" method="POST" enctype="multipart/form-data">
+                    <form action="/links/add" method="POST">
                         <div class="form-group">
                             <input type="text" name="name" class="form-control" placeholder="Nombre del Producto"
                                 autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="category" class="form-control" placeholder="Categoria">
                         </div>
                         <div class="form-group">
                             <input type="number" name="price" class="form-control" placeholder="Lps. 0.00" min="1"
@@ -17,12 +20,15 @@
                             <textarea name="description" rows="2" class="form-control"
                                 placeholder="Descripción"></textarea>
                         </div>
-                        <div class="form-group">
+                        {{!-- <div class="form-group">
                             <div class="custom-file">
                                 <input name="imagen" type="file" class="custom-file-input" id="customFileLangHTML">
                                 <label class="custom-file-label" for="customFileLangHTML"
                                     data-browse="Elegir">Seleccionar archivo</label>
                             </div>
+                        </div> --}}
+                        <div class="form-group">
+                            <input type="url" name="imgURL" class="form-control" placeholder="URL de la Imagen">
                         </div>
 
                         <div class="form-group">

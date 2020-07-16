@@ -1,14 +1,15 @@
 <div class="container p-4">
     <div class="row">
         {{#each links}}
-        <div class="col-md-3">
-            <div class="card text-center">
+        <div class="col-md-4">
+            <div class="card text-center mb-2">
                 <div class="card-body">
-                    <a href="{{url}}" target="_blank">
+                    <a href="" target="_blank">
                         <h3 class="card-title text-uppercase">
                             {{name}}
                         </h3>
                     </a>
+                    <img class="card" src="{{imgURL}}" alt="">
                     <p class="m-2">Descripción:<br>{{description}}</p>
                     <p class="m-2">Categoría:<br>{{category}}</p>
                     <p class="m-2">Precio:<br>{{price}}</p>
@@ -24,7 +25,7 @@
                 </div>
             </div>
         </div>
-    
+
         {{else}}
         <div class="col-md-4 mx-auto">
             <div class="card card-body text-center">
@@ -33,6 +34,6 @@
             </div>
         </div>
         {{/each}}
-        
+
     </div>
 </div>

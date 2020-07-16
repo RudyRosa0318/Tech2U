@@ -30,7 +30,14 @@
         <li class="nav-item">
           <a class="nav-link" href="/logout">Cerrar Sesión |</a>
         </li>
+        {{else if user.userType }}
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">| Perfil |</a>
+        </li>
 
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Cerrar Sesión |</a>
+        </li>
         {{else}}
         <li class="nav-item">
           <a class="nav-link" href="/signin">Iniciar Sesión |</a>

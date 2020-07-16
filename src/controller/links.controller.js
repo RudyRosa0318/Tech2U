@@ -7,13 +7,15 @@ res.AddLink = (req, res) => {
 };
 
 res.addtheLink = async (req, res) => {
-  const { name, description, price,category } = req.body;
+  const { name, description, price,category,imgURL } = req.body;
   const newLink = {
     name,
     description,
     price,
     category,
+    imgURL,
   };
+  console.log(newLink);
   await pool.query("INSERT INTO product set ?", [newLink]);
   req.flash("success", "Guardado correctamente!");
   res.redirect("/links");
@@ -39,7 +41,7 @@ res.renderEditLink = async (req, res) => {
 
 res.editLink = async (req, res) => {
   const { idProduct } = req.params;
-  const { name, price, description } = req.body;
+  const { name, price, description,category } = req.body;
   const newLink = {
     name,
     price,
