@@ -26,13 +26,14 @@ CREATE TABLE product (
   description TEXT,
   price DECIMAL(10,2) NOT NULL,
   category VARCHAR(25) NOT NULL,
+  url VARCHAR(30) NULL,
+  upldated_update_at_url_image timestamp NULL,
   created_at timestamp NOT NULL DEFAULT current_timestamp,
   PRIMARY KEY (idProduct)
 );
 
 ALTER TABLE products
   MODIFY idProduct INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
----------------
 
 
 --CART TABLE
