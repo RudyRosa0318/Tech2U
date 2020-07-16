@@ -54,6 +54,22 @@ next();
 });
 
 //routas
+//confgiuracion de almacenamiento de multer
+//  const storage = multer.diskStorage({
+//    //se eligen donde se guarda la imagen
+//    destination: path.join(__dirname, 'public/img/upload'),
+//    //se configura el nombre que tomara la imagen
+//    filename: (req,file,cb,filename) => {
+//      cb(null, shortid.generate() + path.extname(file.originalname)) 
+//    }
+//  });
+// //configurando parametros de almacenamiento multer, solo aceptara una imagen.
+//  app.use(multer({
+//    storage
+//  }).single('imagen'));
+
+
+//rutas
 app.use(require('./routes/index'));
 app.use(require('./routes/auth'));
 app.use('/links', require('./routes/links'));

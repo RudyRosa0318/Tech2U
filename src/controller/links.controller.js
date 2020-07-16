@@ -7,16 +7,26 @@ res.AddLink = (req, res) => {
 };
 
 res.addtheLink = async (req, res) => {
-  const { name, description, price,category,imgURL } = req.body;
+  const { name, description, price,category,url_image} = req.body;
+  const { filename, originalname, mimetype, size,path } = req.file;
+  const newImage = {idImage: filename,
+    filename,
+    originalname, 
+    mimetype,
+    size,
+    path:"/img/upload/"+filename,
+  }
   const newLink = {
     name,
     description,
     price,
     category,
-    imgURL,
+    idImage : filename,
+    url_image:"/img/upload/"+filename,
   };
   console.log(newLink);
   await pool.query("INSERT INTO product set ?", [newLink]);
+  await pool.query("INSERT INTO image set ?", [newImage]);
   req.flash("success", "Guardado correctamente!");
   res.redirect("/links");
 };
