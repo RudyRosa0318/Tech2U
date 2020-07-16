@@ -9,6 +9,11 @@ const { store } = require('express-session');
 const MySQLStore = require('express-mysql-session');
 const { database } = require('./keys');
 const passport = require('passport');
+//esto me sirve para manejar las imagenes
+const multer = require('multer');
+const shortid = require('shortid');
+
+
 //Inicializar
 const app = express();
 require('./lib/passport');
@@ -50,6 +55,19 @@ app.use(passport.session());
 next();
 });
 
+//confgiuracion de almacenamiento de multer
+ const storage = multer.diskStorage({
+   //se eligen donde se guarda la imagen
+   destination: path.join(__dirname, 'public/img/upload'),
+   //se configura el nombre que tomara la imagen
+   filename: (req,file,cb,filename) => {
+     cb(null, shortid.generate() + path.extname(file.originalname)) 
+   }
+ });
+//configurando parametros de almacenamiento multer, solo aceptara una imagen.
+ app.use(multer({
+   storage
+ }).single('imagen'))
 
 
 //routas
