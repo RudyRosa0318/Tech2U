@@ -8,13 +8,24 @@ res.AddLink = (req, res) => {
 
 res.addtheLink = async (req, res) => {
   const { name, description, price,category } = req.body;
+  const { filename, originalname, mimetype, size } = req.file;
+  const newImage = {idimage: filename,
+    filename,
+    originalname, 
+    mimetype,
+    size,
+    path:"/img/upload/"+filename}
   const newLink = {
     name,
     description,
     price,
-    category,
+    category, //basedatos urlimg,image id,
+    imageid : filename,
+    url_image:"/img/upload/"+filename,
   };
+   
   await pool.query("INSERT INTO product set ?", [newLink]);
+  await pool.query("INSERT INTO image set ?", [newImage]);
   req.flash("success", "Guardado correctamente!");
   res.redirect("/links");
 };
