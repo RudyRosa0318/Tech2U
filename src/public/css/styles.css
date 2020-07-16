@@ -3,3 +3,28 @@
     font-size: 1.2em;
     padding: 0.2em;
   }
+  .main-selection{
+    margin: 0 auto;
+    margin-top: 10%;
+    padding: 0;
+}
+
+.modal-content{
+    padding: 0 20px;
+    margin-top: 7%;
+}
+.img-cem{
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
+
+.div-value{
+    margin-top: 10%;
+}
+.div-value2{
+    margin-top: 50%;
+}
+.img-blur{
+    position: relative;
+    display: inline-block;
+}
