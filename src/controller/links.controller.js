@@ -51,12 +51,13 @@ res.renderEditLink = async (req, res) => {
 
 res.editLink = async (req, res) => {
   const { idProduct } = req.params;
-  const { name, price, description,category } = req.body;
+  const { name, price, description,category,imgURL } = req.body;
   const newLink = {
     name,
     price,
     description,
     category,
+    imgURL,
   };
   await pool.query("UPDATE product set ? WHERE idProduct = ?", [newLink, idProduct]);
   req.flash("success", "Editado correctamente!");
