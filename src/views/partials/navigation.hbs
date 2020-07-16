@@ -9,32 +9,36 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        {{!-- {{#if user}} --}}
+        {{#if user}}
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-          | Añadir categorias 
+          | Añadir producto 
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/links">Todas las categorias</a>
+            <a class="dropdown-item" href="/links">Todas los productos</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/links/add">Agregar categoria</a>
+            <a class="dropdown-item" href="/links/add">Agregar productos</a>
           </div>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="/profile">| Perfil |</a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="/logout">Cerrar Sesión |</a>
         </li>
-        {{!-- {{else}} --}}
+
+        {{else}}
         <li class="nav-item">
           <a class="nav-link" href="/signin">Iniciar Sesión |</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/signup">Registro |</a>
         </li>
-        {{!-- {{/if}} --}}
+        {{/if}}
       </ul>
     </div>
   </div>

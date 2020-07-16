@@ -2,19 +2,19 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="/links/edit/{{link.id}}" method="POST">
+            <form action="/links/edit/{{link.idProduct}}" method="POST">
                 <div class="form-group">
-                    <input type="text" name="title" class="form-control" placeholder="Title" value="{{link.title}}" autofocus>
+                    <input type="text" name="name" class="form-control" placeholder="Nombre del ProdUctO" value="{{link.name}}" autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="url" name="url" class="form-control" placeholder="URL" value="{{link.url}}">
+                    <input type="number" name="price" class="form-control" placeholder="Lps. 0.00" value="{{link.price}}">
                 </div>
                 <div class="form-group">
                     <textarea name="description" rows="2" class="form-control" placeholder="Description">{{link.description}}</textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-success btn-block">
-                        Save
+                        Guardar
                     </button>
                 </div>
             </form>

@@ -8,34 +8,34 @@ passport.use(
   "local.signup",
   new LocalStrategy(
     {
-      usernameField: "username",
+      usernameField: "email",
       passwordField: "password",
       passReqToCallback: true,
     },
-    async (req, username, password, done) => {
+    async (req, email, password, done) => {
       const { fullname } = req.body;
 
       let newUser = {
         fullname,
-        username,
+        email,
         password,
       };
       //Encriptar contraseña
       newUser.password = await helper.encryption(password);
       // Guardar en la base de datos
       const result = await pool.query("INSERT INTO users SET ? ", newUser);
-      newUser.id = result.insertId;
+      newUser.idUser = result.insertId;
       return done(null, newUser);
     }
   )
 );
 
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+  done(null, user.idUser);
 });
 
 passport.deserializeUser(async (id, done) => {
-  const rows = await pool.query("SELECT * FROM users WHERE id = ?", [id]);
+  const rows = await pool.query("SELECT * FROM users WHERE idUser = ?", [id]);
   done(null, rows[0]);
 });
 
@@ -44,13 +44,13 @@ passport.use(
   "local.signin",
   new LocalStrategy(
     {
-      usernameField: "username",
+      usernameField: "email",
       passwordField: "password",
       passReqToCallback: true
     },
-    async (req, username, password, done) => {
-      const rows = await pool.query("SELECT * FROM users WHERE username = ?", [
-        username
+    async (req, email, password, done) => {
+      const rows = await pool.query("SELECT * FROM users WHERE email = ?", [
+        email
       ]);
       if (rows.length > 0) {
         const user = rows[0];
@@ -59,7 +59,7 @@ passport.use(
           user.password
         );
         if (validationpass) {
-          done(null, user, req.flash("success", "Bienvenido " + user.username));
+          done(null, user, req.flash("success", "Bienvenido " + user.fullName));
         } else {
           done(null, false, req.flash("Datos Incorrectos"));
         }

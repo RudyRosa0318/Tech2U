@@ -1,6 +1,7 @@
 const log = {};
 const passport = require('passport');
 
+
 log.loadSignup = (req, res) => {
     res.render('auth/signup');
 };
@@ -20,5 +21,14 @@ log.signIn = passport.authenticate('local.signin', {
     failureRedirect: '/signin',
     failureFlash: true
 });
+
+log.pro =  (req, res) =>{
+    res.render('profile');
+};
+
+log.out = (req, res) => {
+    req.logOut();
+    res.redirect('/');
+};
 
 module.exports = log;
