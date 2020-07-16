@@ -52,7 +52,7 @@ ALTER TABLE cart
 
 
 CREATE TABLE image(
-  idImage VARCHAR NOT NULL,
+  idImage VARCHAR(50) NOT NULL,
   filename VARCHAR(70) NOT NULL,
   path VARCHAR(100) NOT NULL,
   originalname VARCHAR(60) NOT NULL,
