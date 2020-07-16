@@ -20,7 +20,7 @@ res.addtheLink = async (req, res) => {
     description,
     price,
     category, //basedatos urlimg,image id,
-    imageid : filename,
+    idimage : filename,
     url_image:"/img/upload/"+filename,
   };
    
