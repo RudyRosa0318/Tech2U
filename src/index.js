@@ -66,17 +66,7 @@ next();
  });
 //configurando parametros de almacenamiento multer, solo aceptara una imagen.
  app.use(multer({
-   storage,
-   //este es un filtro para decir que solo sube imagenes con las extensiones deseadas
-   fileFilter: (req,file,cb) =>{
-     const filetypes = /jpeg|gif|png|jpg/; 
-    const mimetype = filetypes.test(file.mimetype);
-    const extname = filetypes.test(path.extname(file.originalname));
-    if (mimetype && extname){
-      return cb(null,true);
-    }
-    cb("Esta no es una imagen Válida")
-   }
+   storage
  }).single('imagen'))
 
 
