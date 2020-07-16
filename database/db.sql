@@ -7,7 +7,7 @@ CREATE TABLE users (
   email VARCHAR(30) NOT NULL,
   password VARCHAR(60) NOT NULL,
   fullName VARCHAR(100) NOT NULL,
-  userType BOOLEAN NOT NULL,
+  userType BOOLEAN NOT NULL DEFAULT 0,
   idCart INT(11) NULL,
   CONSTRAINT fk_cart FOREIGN KEY(idCart) REFERENCES cart(idCart)
 );
