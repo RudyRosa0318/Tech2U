@@ -1,33 +1,171 @@
 <div class="container p-4">
     <div class="row">
-        <div class="col-md-4 mx-auto">
+        <div class="col-md-6 mx-auto">
             <div class="card text-center">
                 <div class="card-body">
-                    <h3>Bienvenido <br> {{user.fullName }}</h3>
+                    <h3>Bienvenido </h3>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <div class="card text-center pd-2">
-        <div class="card-body">
-            <form>
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail"
-                            value="{{user.email}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword">
-                    </div>
-                </div>
-            </form>
-        </div>
 
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">Perfil</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                aria-selected="false">Dirección</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages"
+                aria-selected="false">Mensajes</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings"
+                aria-selected="false">Configuración</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <input class="form-control text-center" type="text" placeholder="{{user.fullName}}" readonly>
+
+                        <div class="form-group row">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-4">
+                                <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                    value="{{user.email}}">
+                            </div>
+                        </div>
+                        <p class="text-center">Cambiar contraseña</p>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña antigua</label>
+                            <div class="col-sm-4">
+                                <input type="password" class="form-control" id="oldPassword">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña nueva</label>
+                            <div class="col-sm-4">
+                                <input type="password" class="form-control" id="newPassword">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Repetir contraseña</label>
+                            <div class="col-sm-4">
+                                <input type="password" class="form-control" id="repeatPassword">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                            </div>
+                            <div class="form-group col-md-6">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Dirección Exacta</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputCity">Ciudad</label>
+                                <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputState">Departamento</label>
+                                <select id="inputState" class="form-control">
+                                    <option selected>Choose...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="inputZip">Numero telfónico</label>
+                                <input type="tel" class="form-control" id="cell">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">...</div>
+        <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+            <div class="container">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label for="secret" class="col-sm-2 col-form-label">Codigo Secreto</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="secret">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+    <script>
+        $(function () {
+            $('#myTab li:last-child a').tab('show')
+        })
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
