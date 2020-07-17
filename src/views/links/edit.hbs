@@ -4,24 +4,40 @@
         <div class="card-body">
             <form action="/links/edit/{{link.idProduct}}" method="POST">
                 <div class="form-group">
-                    <input type="text" name="name" class="form-control" placeholder="Nombre del ProdUctO" value="{{link.name}}" autofocus>
+                    <input type="text" name="name" class="form-control" placeholder="Nombre del ProdUctO"
+                        value="{{link.name}}" autofocus>
                 </div>
                 <div class="form-group">
-                            <input type="text" name="categoryid" class="form-control" placeholder="Categoria" value="{{link.category}}" autofocus>
+                    <input type="text" name="idCategory" class="form-control" placeholder="Categoria"
+                        value="{{link.idCategory}}" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="price" class="form-control" placeholder="Lps. 0.00"
+                        value="{{link.price}}">
+                </div>
+                <div class="form-group">
+                    <textarea name="description" rows="2" class="form-control"
+                        placeholder="Description">{{link.description}}</textarea>
+                </div>
+                <div class="form-group">
+                    <input type="url" name="url_image" class="form-control" placeholder="URL de la Imagen">
+                    <br>
+                    <input id="toggle-event" type="checkbox" data-toggle="toggle" data-on="URL" data-off="Subir"
+                        data-onstyle="info" data-offstyle="success">
+                    <div class="form-group border-bottom-0">
+                        <div class="custom-file">
+                            <input name="imagen" type="file" class="custom-file-input" id="customFileLangHTML">
+                            <label class="custom-file-label" for="customFileLangHTML" data-browse="Elegir">Seleccionar
+                                archivo</label>
+                            <div id="console-event"></div>
                         </div>
-                <div class="form-group">
-                    <input type="number" name="price" class="form-control" placeholder="Lps. 0.00" value="{{link.price}}">
-                </div>
-                <div class="form-group">
-                    <textarea name="description"  rows="2" class="form-control" placeholder="Description"  >{{link.description}}</textarea>
-                </div>
+                    </div>
 
-                <div class="form-group">
-                            <input type="url" name="imgURL" class="form-control" placeholder="URL de la Imagen" value="{{link.imgURL}}"></div>
-                <div class="form-group">
-                    <button class="btn btn-success btn-block">
-                        Guardar
-                    </button>
+                    <div class="form-group">
+                        <button class="btn btn-success btn-block" id="boton">
+                            Guardar
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>

@@ -60,7 +60,15 @@ ALTER TABLE users
 MODIFY idUser INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
 DESCRIBE users;
 
-
+CREATE TABLE image(
+  idImage VARCHAR(50) NOT NULL,
+  filename VARCHAR(70) NOT NULL,
+  path VARCHAR(100) NOT NULL,
+  originalname VARCHAR(60) NOT NULL,
+  mimetype VARCHAR (60) NOT NULL,
+  size INT NOT NULL,
+  PRIMARY KEY (idImage)
+);
 
 
 
