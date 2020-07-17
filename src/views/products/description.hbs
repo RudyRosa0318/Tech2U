@@ -1,46 +1,31 @@
-     <link rel="stylesheet" href="../../public/css/styles.css">
-      <div class="container">
-         <div class="row">
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-12 bg-dark my-4" >
-                        <h2 class="title-SobreProducto text-uppercase font-weight my-1 ">Descripción del Producto</h2>
+<link rel="stylesheet" href="../../public/css/styles.css">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-12 bg-dark my-4">
+                    <h2 class="title-SobreProducto text-uppercase font-weight my-1 ">Descripción del Producto</h2>
+                </div>
+                <div class="col-sm-5">
+                    <div class="div-pading">
+                        <img class="img-format img-fluid" src="{{links.url_image}}" alt="{{name}}">
                     </div>
-                    <div class="col-sm-5">
-                        <div class="div-pading">
-                            <img class="img-format img-fluid" src="../../public/Imagen/Razen 1.jpg" alt="Imagen del Mouse">
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img class="img-format img-fluid" src="../../public/Imagen/Razen 2.jpg" alt="Imagen del Mouse">
-                            </div>
-                            <div class="col-sm-4">
-                                <img class="img-format img-fluid" src="../../public/Imagen/Razen 3.jpg" alt="Imagen del Mouse">
-                            </div>
-                            <div class="col-sm-4">
-                                <img class="img-format img-fluid" src="../../public/Imagen/Razen 4.jpg" alt="Imagen del Mouse">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-7 div-color" >
-                        <h2>Razer Naga Trinity Gaming Mouse: 16,000 DPI Optical Sensor</h2>
-                        <p>
-                            <strong>Descripción:</strong>
-                             <ul>
-                                <li>The #1 Best-Selling Gaming Peripherals Manufacturer in the US: Source - The NPD Group, Inc. U.S. Retail Tracking Service, Keyboards, Mice, PC Headset/Pc Microphone, Gaming Designed, based on dollar sales, Jan. 2017- Dec. 2019 </li>
-                                <li>High-Precision 16,000 DPI Optical Sensor: Offers on-the-fly sensitivity adjustment through dedicated DPI buttons (reprogrammable) for gaming </li>
-                                <li>Full Modular Customizability: 3 interchangeable side plates with 2, 7 and 12-button configurations </li> 
-                            </ul>
-                        </p>
-                       
-                        <p><strong>Precio:</strong> $500.00</p>
-                        <p><strong>Quality:</strong> Una de las mejores </p>
-                        
+                    
                     </div>
                 </div>
+                <div class="col-sm-7 div-color">
+                    <h2>{{links.name}}</h2>
+                    <p>
+                        <strong>Descripción:</strong>
+                    <p>{{links.description}}</p>
+                    </p>
+                    <p><strong>Precio:</strong> L {{links.price}}</p>
+                    {{!-- agregar boton --}}
+                </div>
             </div>
-      </div>
-      </div>
-      <div class="div-pading">
+        </div>
+    </div>
+</div>
+<div class="div-pading">
 
-      </div>
+</div>

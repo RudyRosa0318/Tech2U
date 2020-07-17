@@ -1,5 +1,6 @@
 <div class="container p-4">
     <div class="row">
+        {{#if links}}
         {{#each links}}
         <div class="col-md-4">
             <div class="card text-center mb-2" style="border-color: aqua;">
@@ -9,11 +10,11 @@
                             {{name}}
                         </h3>
                     </a>
-                    <img class="img-thumbnail col-lg-10 "  src="{{imgURL}}" alt="">
+                    <img class="img-thumbnail col-lg-10 " src="{{imgURL}}" alt="">
                     <p class="m-2">Descripción:<br>{{description}}</p>
                     <p class="m-2">Categoría:<br>{{category}}</p>
                     <p class="m-2">Precio:<br>L. {{price}}</p>
-                   
+
                     <p class="text-muted">
                         {{timeago created_at}}
                     </p>
@@ -26,15 +27,19 @@
                 </div>
             </div>
         </div>
+        {{/each}}
+
 
         {{else}}
+
+
         <div class="col-md-4 mx-auto">
             <div class="card card-body text-center">
                 <p>No hay productos creados aún.</p>
                 <a href="/links/add">Añadir uno!</a>
             </div>
         </div>
-        {{/each}}
+        {{/if}}
 
     </div>
 </div>

@@ -73,6 +73,7 @@ next();
 app.use(require('./routes/index'));
 app.use(require('./routes/auth'));
 app.use('/links', require('./routes/links'));
+app.use('/', require('./routes/index'))
 
 
 //Public
