@@ -7,7 +7,7 @@ res.AddLink = (req, res) => {
 };
 
 res.addtheLink = async (req, res) => {
-  const { name, description, price,category,url_image} = req.body;
+  const { name, description, price,idCategory,url_image} = req.body;
   const { filename, originalname, mimetype, size,path } = req.file;
   const newImage = {idImage: filename,
     filename,
@@ -20,7 +20,7 @@ res.addtheLink = async (req, res) => {
     name,
     description,
     price,
-    categoryid,
+    idCategory,
     idImage : filename,
     url_image:"/img/upload/"+filename,
   };
@@ -52,13 +52,13 @@ res.renderEditLink = async (req, res) => {
 
 res.editLink = async (req, res) => {
   const { idProduct } = req.params;
-  const { name, price, description,category,imgURL } = req.body;
+  const { name, price, description,idCategory,url_image } = req.body;
   const newLink = {
     name,
     price,
     description,
-    category,
-    imgURL,
+    idCategory,
+    url_image,
   };
   await pool.query("UPDATE product set ? WHERE idProduct = ?", [newLink, idProduct]);
   req.flash("success", "Editado correctamente!");

@@ -7,13 +7,17 @@ CREATE TABLE category(
   PRIMARY KEY (idCategory)
 );
 
+ALTER TABLE category
+MODIFY idCategory INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
+
+
 -- PRODUCTS TABLE
 CREATE TABLE product (
   idProduct INT(11) NOT NULL,
   name VARCHAR(50) NOT NULL,
   description TEXT,
   price DECIMAL(10,2) NOT NULL,
-  idCategory INT(11) NOT NULL,
+  idCategory INT(11) NOT NULL ,
   url_image VARCHAR(100) NULL,
   idImage VARCHAR(30) NULL,
   update_at datetime NULL,
