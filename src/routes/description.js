@@ -6,7 +6,7 @@ const { description } = require('../controller/description.controller');
 
 
 router.get('/description', (req, res) => {
-     res.render('index');
+     res.render('description');
  });
 
 //  router.get('/',indexc);

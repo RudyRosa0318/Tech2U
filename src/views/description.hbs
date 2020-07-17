@@ -1,4 +1,4 @@
-     <link rel="stylesheet" href="../../public/css/styles.css">
+     <link rel="stylesheet" href="/css/styles.css">
       <div class="container">
          <div class="row">
             <div class="col-sm-12">
@@ -8,17 +8,17 @@
                     </div>
                     <div class="col-sm-5">
                         <div class="div-pading">
-                            <img class="img-format img-fluid" src="../../public/Imagen/Razen 1.jpg" alt="Imagen del Mouse">
+                            <img class="img-format img-fluid" src="/img/Razen1.jpg" alt="Imagen del Mouse">
                         </div>
                         <div class="row">
                             <div class="col-sm-4">
-                                <img class="img-format img-fluid" src="../../public/Imagen/Razen 2.jpg" alt="Imagen del Mouse">
+                                <img class="img-format img-fluid" src="/img/Razen 2.jpg" alt="Imagen del Mouse">
                             </div>
                             <div class="col-sm-4">
-                                <img class="img-format img-fluid" src="../../public/Imagen/Razen 3.jpg" alt="Imagen del Mouse">
+                                <img class="img-format img-fluid" src="/img/Razen 3.jpg" alt="Imagen del Mouse">
                             </div>
                             <div class="col-sm-4">
-                                <img class="img-format img-fluid" src="../../public/Imagen/Razen 4.jpg" alt="Imagen del Mouse">
+                                <img class="img-format img-fluid" src="/img/Razen 4.jpg" alt="Imagen del Mouse">
                             </div>
                         </div>
                     </div>
@@ -36,6 +36,19 @@
                         <p><strong>Precio:</strong> $500.00</p>
                         <p><strong>Quality:</strong> Una de las mejores </p>
                         
+                    <form action="your-server-side-code" method="POST">
+                        <script
+                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="pk_test_51H2N7MLEI8ChCXhjdDZBQPxygRWwufQoYwRMmmrpi8JaY1FwB4u79Vk5DWV2HnyijJBvHRxZFkwEYozzpBbUbZSt00OKF8h87l"
+                            data-amount="999"
+                            data-name="Tech2U"
+                            data-description="Widget"
+                            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                            data-locale="auto">
+                        </script>   
+                    </form>
+
+                      
                     </div>
                 </div>
             </div>
@@ -44,3 +57,4 @@
       <div class="div-pading">
 
       </div>
+    
