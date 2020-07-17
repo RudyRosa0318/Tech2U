@@ -20,7 +20,7 @@ res.addtheLink = async (req, res) => {
     name,
     description,
     price,
-    category,
+    categoryid,
     idImage : filename,
     url_image:"/img/upload/"+filename,
   };
@@ -33,7 +33,8 @@ res.addtheLink = async (req, res) => {
 
 res.renderLinks = async (req, res) => {
   const links = await pool.query("SELECT * FROM product");
-  res.render("links/list", { links });
+  const category = await pool.query("SELECT * FROM category");
+  res.render("links/list", { links, category });
 };
 
 res.deleteLink = async (req, res) => {
