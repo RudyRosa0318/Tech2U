@@ -3,13 +3,14 @@
         <div class="col-lg-12">
             <h1 class="mt-4">Categoría</h1>
             {{#if products}}
-            <h2 class="mt-4">Mouse</h2>
-            {{#each products}}
+            <h2 class="mt-4" id="{{category.idCategory}}">{{category.name}}</h2>
             <hr>
             <div class="row no-gutters justify-content-center">
                 <div class="row">
+                    {{#each products}}
+
                     <div class="col-sm contanedorm">
-                        <img class="img-thumbnail" src="{{url_image}}" alt="{{name}}">
+                        <img class="img-fluid img-thumbnail" src="{{url_image}}" alt="{{name}}">
                         <hr>
                         <div class="div-design">
                             <a href="/description/{{idProduct}}">{{name}}</a>
@@ -17,9 +18,10 @@
                         </div>
                     </div>
 
+                    {{/each}}
+
                 </div>
             </div>
-            {{/each}}
             {{/if}}
 
 

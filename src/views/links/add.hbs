@@ -22,10 +22,9 @@
                         </div>
                         <div class="form-group">
                             <select class="form-control" name="idCategory">
-                                <option value="" disabled selected hidden>Categoría</option>
-                                <option value="2" >Teclado</option>
+                                {{!-- <option value="" disabled selected hidden>Categoría</option> --}}
                                 {{#each category}}
-                                <option id="{{idCategory}}">{{idCategory}}</option>
+                                <option id="{{idCategory}}" >{{name}}</option>
                                 {{/each}}
 
 
@@ -61,3 +60,14 @@
         </div>
     </div>
 </div>
+<script>
+    $('form').on('focus', 'input[type=number]', function (e) {
+        $(this).on('wheel.disableScroll', function (e) {
+            e.preventDefault()
+        })
+    })
+    $('form').on('blur', 'input[type=number]', function (e) {
+        $(this).off('wheel.disableScroll')
+    });
+
+</script>
