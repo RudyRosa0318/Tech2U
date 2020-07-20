@@ -13,6 +13,11 @@ const passport = require("passport");
 const multer = require("multer");
 const shortid = require("shortid");
 
+
+//Para manejar los metodos de pago
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
+
 //Inicializar
 const app = express();
 require("./lib/passport");

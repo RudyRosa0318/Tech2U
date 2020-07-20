@@ -9,10 +9,9 @@
                 <div class="col-sm-5">
                     <div class="div-pading">
                         <img class="img-format img-fluid" src="{{links.url_image}}" alt="{{name}}">
-                    </div>
-                    
-                    </div>
+                    </div> 
                 </div>
+            </div>
                 <div class="col-sm-7 div-color">
                     <h2>{{links.name}}</h2>
                     <p>
@@ -21,6 +20,15 @@
                     </p>
                     <p><strong>Precio:</strong> L {{links.price}}</p>
                     {{!-- agregar boton --}}
+                    <form action="your-server-side-code" method="POST">
+                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="pk_test_51H5lSsKfonblX5qI0sCP1COhpM4VSGbXq4QNpSmFJLJe8GktNh8U7N8CXI8X7QPIEuIr7T5TEMZiZozEnX0l1qPt00Qt1M1sv2"
+                        data-amount=9999
+                        data-name="Tech2U"
+                        data-image="/img/logo2.png"
+                        data-locale="auto"
+                    ></script>
+                </form>
                 </div>
             </div>
         </div>
