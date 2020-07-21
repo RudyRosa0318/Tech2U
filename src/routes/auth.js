@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {isLoggedin, isNotLoggedin} = require('../lib/auth');
-const { loadSignup, signUp, loadSignIn, signIn, out, pro } = require('../controller/auth.controller')
+const { loadSignup, signUp, loadSignIn, signIn, out, pro,superuser } = require('../controller/auth.controller')
 
 // Registro
 router.get('/signup',isNotLoggedin, loadSignup);
@@ -13,6 +13,7 @@ router.post('/signin', signIn);
 
 //profile
 router.get('/profile',isLoggedin,pro);
+router.post('/profile',superuser);
 
 //logout
 router.get('/logout',out);

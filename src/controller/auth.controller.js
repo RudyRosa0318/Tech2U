@@ -1,6 +1,6 @@
 const log = {};
 const passport = require('passport');
-
+const pool = require("../model/database");
 
 log.loadSignup = (req, res) => {
     res.render('auth/signup');
@@ -22,7 +22,7 @@ log.signIn = passport.authenticate('local.signin', {
     failureFlash: true
 });
 
-log.pro =  (req, res) =>{
+log.pro = (req, res) => {
     res.render('profile');
 };
 
@@ -30,5 +30,20 @@ log.out = (req, res) => {
     req.logOut();
     res.redirect('/');
 };
+
+log.superuser = async (req, res) => {
+    const { secretA, sumadre } = req.body;
+    if (secretA == "admin") {
+        await pool.query("UPDATE users set userType= ? WHERE idUser = ?", [0, sumadre]);
+        req.flash("success", "Ahora eres Administrador!");
+        console.log(sumadre);
+        res.redirect('/links');
+    }   
+    else {
+        req.flash("success", "Codigo incorrecto!");
+        res.redirect('/profile');
+    }
+
+}
 
 module.exports = log;
