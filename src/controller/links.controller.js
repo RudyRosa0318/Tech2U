@@ -2,29 +2,30 @@ const pool = require("../model/database");
 
 const res = {};
 
-res.AddLink = (req, res) => {
-  res.render("links/add");
+res.AddLink = async (req, res) => {
+  const category = await pool.query("SELECT * FROM category");
+  res.render("links/add", { category });
 };
 
 res.addtheLink = async (req, res) => {
-  const { name, description, price,idCategory,url_image} = req.body;
-  const { filename, originalname, mimetype, size,path } = req.file;
-  const newImage = {idImage: filename,
+  const { name, description, price, idCategory, url_image } = req.body;
+  const { filename, originalname, mimetype, size, path } = req.file;
+  const newImage = {
+    idImage: filename,
     filename,
-    originalname, 
+    originalname,
     mimetype,
     size,
-    path:"/img/upload/"+filename,
-  }
+    path: "/img/upload/" + filename,
+  };
   const newLink = {
     name,
     description,
     price,
     idCategory,
-    idImage : filename,
-    url_image:"/img/upload/"+filename,
+    idImage: filename,
+    url_image: "/img/upload/" + filename,
   };
-  console.log(newLink);
   await pool.query("INSERT INTO product set ?", [newLink]);
   await pool.query("INSERT INTO image set ?", [newImage]);
   req.flash("success", "Guardado correctamente!");
@@ -33,8 +34,8 @@ res.addtheLink = async (req, res) => {
 
 res.renderLinks = async (req, res) => {
   const links = await pool.query("SELECT * FROM product");
-  const category = await pool.query("SELECT * FROM category");
-  res.render("links/list", { links, category });
+
+  res.render("links/list", { links });
 };
 
 res.deleteLink = async (req, res) => {
@@ -46,13 +47,15 @@ res.deleteLink = async (req, res) => {
 
 res.renderEditLink = async (req, res) => {
   const { idProduct } = req.params;
-  const link = await pool.query("SELECT * FROM product WHERE idProduct = ?", [idProduct]);
+  const link = await pool.query("SELECT * FROM product WHERE idProduct = ?", [
+    idProduct,
+  ]);
   res.render("links/edit", { link: link[0] });
 };
 
 res.editLink = async (req, res) => {
   const { idProduct } = req.params;
-  const { name, price, description,idCategory,url_image } = req.body;
+  const { name, price, description, idCategory, url_image } = req.body;
   const newLink = {
     name,
     price,
@@ -60,7 +63,10 @@ res.editLink = async (req, res) => {
     idCategory,
     url_image,
   };
-  await pool.query("UPDATE product set ? WHERE idProduct = ?", [newLink, idProduct]);
+  await pool.query("UPDATE product set ? WHERE idProduct = ?", [
+    newLink,
+    idProduct,
+  ]);
   req.flash("success", "Editado correctamente!");
   res.redirect("/links");
 };
