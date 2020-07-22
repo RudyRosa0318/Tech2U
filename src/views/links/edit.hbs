@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <select class="form-control" name="idCategory">
 
-                        <option id="{{link.idCategory}}" disabled selected hidden>{{category.name}}</option>
+                        {{!-- <option id="{{link.idCategory}}" disabled selected hidden>{{category.name}}</option> --}}
                         {{#each category}}
                         <option id="{{idCategory}}" value="{{idCategory}}">{{name}}</option>
                         {{/each}}
