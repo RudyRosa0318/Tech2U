@@ -7,6 +7,7 @@ const {
   renderDescription,
   obtenerProductoPorId,
 } = require("../controller/index.controller");
+const { renderCart } = require("../controller/links.controller");
 
 router.get("/", renderIndex);
 
