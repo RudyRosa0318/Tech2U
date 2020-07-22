@@ -3,7 +3,7 @@ const pool = require("../model/database");
 const res = {};
 
 res.AddLink = async (req, res) => {
-  const category = await pool.query("SELECT * FROM category");
+  const category = await pool.query("SELECT * FROM product");
   res.render("links/add", { category });
 };
 

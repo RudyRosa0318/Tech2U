@@ -2,7 +2,18 @@ const pool = require("../model/database");
 
 const hud = {};
 
-res.AddLink = async (req, res) => {
-    const category = await pool.query("SELECT * FROM category");
-    res.render("links/add", { category });
+hud.AddCat = async (req, res) => {
+    res.render("categories/add");
 };
+
+hud.AddTheCat = async (req, res) => {
+    const {name} = req.body;
+    const newCat = {
+        name,
+    }
+    await pool.query("INSERT INTO category set ?", [newCat]);
+    req.flash("success", "Guardado correctamente!");
+    res.redirect("/categories");
+}
+ 
+module.exports = hud;
