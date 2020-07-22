@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { AddLink, addtheLink, renderLinks, deleteLink, editLink, renderEditLink } = require('../controller/links.controller')
+const { AddLink, addtheLink, renderLinks, deleteLink, editLink, renderEditLink, renderCart } = require('../controller/links.controller')
 
 //Añadir Productos
 router.get('/add', AddLink);
@@ -13,6 +13,7 @@ router.get('/delete/:idProduct', deleteLink);
 //Editar productos
 router.get('/edit/:idProduct', renderEditLink);
 router.post('/edit/:idProduct',editLink);
+
 
 
 

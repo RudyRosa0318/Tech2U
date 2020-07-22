@@ -83,6 +83,9 @@ app.use(require("./routes/index"));
 app.use(require("./routes/auth"));
 app.use(require("./routes/description"));
 app.use(require("./routes/categories"));
+app.use(require("./routes/cart"));
+
+
 
 app.use("/categories",require("./routes/categories"))<
 app.use("/links", require("./routes/links"));

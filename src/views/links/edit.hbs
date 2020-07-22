@@ -22,8 +22,12 @@
                 <div class="form-group">
                     <input type="url" name="url_image" class="form-control" placeholder="URL de la Imagen">
                     <br>
-                    <input id="toggle-event" type="checkbox" data-toggle="toggle" data-on="URL" data-off="Subir"
-                        data-onstyle="info" data-offstyle="success">
+                    <div class="m-1 custom-control custom-switch">
+                        <input name="toggle" type="checkbox" class="custom-control-input" id="customSwitch_t">
+                        <label class="custom-control-label" for="customSwitch_t" id="label_t">URL</label>
+                    </div>
+                    {{!-- <input id="toggle-event" type="checkbox" data-toggle="toggle" data-on="URL" data-off="Subir"
+                        data-onstyle="info" data-offstyle="success"> --}}
                     <div class="form-group border-bottom-0">
                         <div class="custom-file">
                             <input name="imagen" type="file" class="custom-file-input" id="customFileLangHTML">
