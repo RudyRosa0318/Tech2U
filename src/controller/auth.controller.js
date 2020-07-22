@@ -34,13 +34,13 @@ log.out = (req, res) => {
 log.superuser = async (req, res) => {
     const { secretA, sumadre } = req.body;
     if (secretA == "admin") {
-        await pool.query("UPDATE users set userType= ? WHERE idUser = ?", [0, sumadre]);
+        await pool.query("UPDATE users set userType= ? WHERE idUser = ?", [0, ]);
         req.flash("success", "Ahora eres Administrador!");
-        console.log(sumadre);
+        console.log();
         res.redirect('/links');
     }   
     else {
-        req.flash("success", "Codigo incorrecto!");
+        req.flash("warning", "Codigo incorrecto!");
         res.redirect('/profile');
     }
 
