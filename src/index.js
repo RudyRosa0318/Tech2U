@@ -56,6 +56,7 @@ app.use(passport.session());
 //Variables globales
 app.use((req, res, next) => {
   app.locals.success = req.flash("success");
+  app.locals.warning = req.flash("warning");
   app.locals.user = req.user;
   next();
 });
@@ -81,10 +82,12 @@ app.use(
 app.use(require("./routes/index"));
 app.use(require("./routes/auth"));
 app.use(require("./routes/description"));
+app.use(require("./routes/categories"));
 app.use(require("./routes/cart"));
 
 
 
+app.use("/categories",require("./routes/categories"))<
 app.use("/links", require("./routes/links"));
 app.use("/", require("./routes/index"));
 
