@@ -12,22 +12,17 @@
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">L.</span>
+                                <span class="input-group-text">L</span>
                             </div>
                             <input type="number" name="price" class="form-control" aria-label="Cantidad"
                                 placeholder="1234.00">
-                            <div class="input-group-append">
-                                <span class="input-group-text">.00</span>
-                            </div>
                         </div>
                         <div class="form-group">
                             <select class="form-control" name="idCategory">
-                                {{!-- <option value="" disabled selected hidden>Categoría</option> --}}
+                                <option value="" disabled selected hidden>Categoría</option>
                                 {{#each category}}
                                 <option id="{{idCategory}}" value="{{idCategory}}">{{name}}</option>
                                 {{/each}}
-
-
                             </select>
                         </div>
                         <div class="form-group">
@@ -42,9 +37,6 @@
                             </div>
                             {{!-- <input name="toggle" id="toggle-event" type="checkbox" data-toggle="toggle" data-on="URL" data-off="Subir"
                                 data-onstyle="info" data-offstyle="success"> --}}
-
-
-
                             <div class="custom-file mb-1">
                                 <input name="imagen" type="file" class="custom-file-input" id="customFileLangHTML">
                                 <label class="custom-file-label" for="customFileLangHTML" id="l_customFileLangHTML"

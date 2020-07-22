@@ -28,7 +28,8 @@ log.pro = (req, res) => {
 
 log.out = (req, res) => {
     req.logOut();
-    res.redirect('/');
+    res.redirect('/')
+    this.reload('true');
 };
 
 log.superuser = async (req, res) => {

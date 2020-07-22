@@ -46,22 +46,25 @@ res.deleteLink = async (req, res) => {
 };
 
 res.renderEditLink = async (req, res) => {
-  const { idProduct } = req.params;
+  const { idProduct,idCategory} = req.params;
+    const category = await pool.query("SELECT * FROM category");
   const link = await pool.query("SELECT * FROM product WHERE idProduct = ?", [
-    idProduct,
+    idProduct
   ]);
-  res.render("links/edit", { link: link[0] });
+  const cat = await pool.query("SELECT n.idCategory as 'IdCatProd', s.idCategory,s.name from product n JOIN category s on s.idCategory = n.idCategory;");
+  res.render("links/edit", { link: link[0], cat: cat[0], category });
 };
 
 res.editLink = async (req, res) => {
   const { idProduct } = req.params;
+  const { filename } = req.file;
   const { name, price, description, idCategory, url_image } = req.body;
   const newLink = {
     name,
     price,
     description,
     idCategory,
-    url_image,
+    url_image: "/img/upload/" + filename,
   };
   await pool.query("UPDATE product set ? WHERE idProduct = ?", [
     newLink,
@@ -70,7 +73,5 @@ res.editLink = async (req, res) => {
   req.flash("success", "Editado correctamente!");
   res.redirect("/links");
 };
-
-
 
 module.exports = res;

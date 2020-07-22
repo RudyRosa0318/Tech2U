@@ -1,8 +1,10 @@
 const indexc = {};
 const pool = require("../model/database");
+
 indexc.renderIndex = async(req, res) => {
   const products = await pool.query("SELECT * FROM product");
-    res.render("index",{products});
+  const category = await pool.query("SELECT * FROM category")
+    res.render("index",{products,category});
 };
 indexc.renderDescription = (req, res) => {
   res.render("products/description");
