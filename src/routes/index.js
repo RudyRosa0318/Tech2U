@@ -10,13 +10,16 @@ const {
   renderIndex,
   renderDescription,
   obtenerProductoPorId,
+  renderCart
+
 } = require("../controller/index.controller");
-const { renderCart } = require("../controller/links.controller");
+
 
 router.get("/", renderIndex);
 
 router.get("/description", renderDescription);
 router.get("/description/:id", obtenerProductoPorId);
+router.get("/cart", renderCart);
 //  router.get('/',indexc);
 
 router.post("/checkout", async (req, res) => {

@@ -1,7 +1,7 @@
 const cart = {};
 
-cart.renderCart = (req, res) => {
-    res.render('links/cart');
+cart.renderCarts = (req, res) => {
+    res.render('cart');
 };
 
 module.exports = cart;
