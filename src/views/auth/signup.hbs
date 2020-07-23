@@ -1,39 +1,16 @@
-<div class="container text-center modal-content" style="background-color: #222831;">
-  <div class="main-selection">
-      <div class="row ">
-
-          <div class="col-sm">
-            <img class="img-fluid img-format"  src="/img/logo2.png" alt="Logo de Tech2U">
-          </div> 
-          <div class="line-t">
-              
-          </div>  
-          <div class="col-sm">
-              <h3 class="text-white">Registrarse</h3>
-              <br>
-              <form action="/signup" method="POST">
-                  <div class="form-group" style="width: 80%; margin-left: auto; margin-right: auto;">
-                    <input type="type" name="fullname" placeholder="Nombre Completo" class="form-control" autofocus>
-                  </div>
-                  <div class="form-group" style="width: 80%; margin-left: auto; margin-right: auto;">
-                    <input type="email" name="email" placeholder="Ingresa tu Correo Electrónico" class="form-control">
-                  </div>
-                  <div class="form-group" style="width: 80%; margin-left: auto; margin-right: auto;">
-                    <input type="password" name="password" placeholder="Contraseña" class="form-control">
-                  </div>
-                  <button type="submit" class="btn" style="background-color: #517a2c; color: #ffffff;"><i class="far fa-address-card"></i> Registrarse</button>
-              </form> 
-          </div>
-      </div>
-      <div class="py-4 d-flex">
-          <div class="col-md-12 text-center">
-              <a href="#"><i class="fab fa-facebook-f text-white mr-4" style="font-size: 35px;"></i></a>
-              <a href="#"><i class="fab fa-twitter text-white mr-4 " style="font-size: 35px;"></i></a>
-              <a href="#"><i class="fab fa-instagram text-white mr-4 " style="font-size: 35px;"></i></a>
-              <a href="#"><i class="fab fa-google-plus text-white mr-4 " style="font-size: 35px;"></i></a>
-              <a href="#"><i class="fab fa-snapchat-ghost text-white" style="font-size: 35px;"></i></a>
-          </div>
-      </div>
-  </div>
-
-</div>  
+{{>navigation}}
+<div class="blur">
+    <div class="contact-form">
+        <img src="/img/logo.png" class="avatar">
+        <h2>Registrarse</h2>
+        <form action="/signup" method="POST">
+            <p>Nombre Completo</p>
+            <input type="text" name="fullname" placeholder="Alguien">
+            <p>Correo</p>
+            <input type="text" name="email" placeholder="Alguien@correo.com">
+            <p>Contraseña</p>
+            <input type="password" name="password" placeholder="Contraseña">
+            <input type="submit" name="" value="Iniciar Sesión">
+        </form>
+    </div>
+</div>

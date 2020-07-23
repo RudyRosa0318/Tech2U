@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         {{#if user}}
-        <li class="nav-item">
+        <li class="nav-item" >
           <a class="nav-link" style="color: white;" href="/">| <i class="fas fa-home"></i>Inicio </a>
         </li>
         <li class="nav-item dropdown">
@@ -44,9 +44,6 @@
         <li class="nav-item">
           <a class="nav-link" style="color: white;" href="/logout">Cerrar Sesión |</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" style="color: white;" href="/cart">Carrito <i class="fas fa-shopping-cart"></i></a>
-        </li>
         {{#unless user.userType}}
 
         {{/unless}}
@@ -57,7 +54,7 @@
         <li class="nav-item" style="color: white;">
           <a class="nav-link" href="/signin">Iniciar Sesión |</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" >
           <a class="nav-link" style="color: white;" href="/signup">Registro |</a>
         </li>
         {{/if}}
