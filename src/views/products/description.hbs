@@ -1,36 +1,84 @@
+{{>navigation}}
+{{>flash}}
 <link rel="stylesheet" href="../../public/css/styles.css">
-<div class="container">
+<div class="container dark-grey-text mt-5">
     <div class="row">
         <div class="col-sm-12">
-            <div class="row">
-                <div class="col-sm-12 bg-dark my-4">
-                    <h2 class="title-SobreProducto text-uppercase font-weight my-1 ">Descripción del Producto</h2>
+            <div class="row wow fadeIn">
+                <div class="col-md-6 mb-4">
+                    <img class="img-format img-fluid" src="{{links.url_image}}" alt="{{name}}">
                 </div>
-                <div class="col-sm-5">
-                    <div class="div-pading">
-                        <img class="img-format img-fluid" src="{{links.url_image}}" alt="{{name}}">
+                <div class="col-md-6 mb-4">
+                    <div class="p-4">
+                        <div class="mb-3">
+                            <a href="">
+                                <span class="badge purple mr-1">{{links.category}}</span>
+                            </a>
+                            <a href="">
+                                <span class="badge blue mr-1">New</span>
+                            </a>
+                            <a href="">
+                                <span class="badge red mr-1">Bestseller</span>
+                            </a>
+                        </div>
+                        <p class="lead">
+                            <span>L {{links.price}} </span>
+                        </p>
+                        <p class="lead font-weight-bold">{{links.name}}</p>
+                        <p>Categoria: {{links.category}}</p>
+                        <p class="font-weight-bold">Descripción</p>
+                        <p>{{links.description}}</p>
+                        {{#if user}}
+
+                        <form class="d-flex justify-content-left">
+                            <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
+                                <i class="fas fa-shopping-cart ml-1"></i>
+                            </button>
+                        </form>
+
+
+                        {{else}}
+                        <form class="d-flex justify-content-left" action="/checkout" method="POST">
+                            <button class="btn btn-primary btn-md my-0 p" type="submit" onclick="#pay">Add to cart
+                                <i class="fas fa-shopping-cart ml-1"></i>
+                            </button>
+                            <script src="https://checkout.stripe.com/checkout.js" 
+                            class="stripe-button" id="pay"
+                                data-key="pk_test_51H5lSsKfonblX5qI0sCP1COhpM4VSGbXq4QNpSmFJLJe8GktNh8U7N8CXI8X7QPIEuIr7T5TEMZiZozEnX0l1qPt00Qt1M1sv2"
+                               
+                                data-amount={{links.price}} 
+                                data-name={{links.name}} 
+                                data-image="/img/logo2.png"
+                                data-locale="auto">
+                                </script>
+
+                        </form>
+
+                        {{/if}}
                     </div>
                 </div>
-                <div class="col-sm-7 div-color">
-                    <h2>{{links.name}}</h2>
-                    <p>
-                        <strong>Descripción:</strong>
-                    <p>{{links.description}}</p>
-                    </p>
-                    <p>Categoria: {{links.category}}</p>
-                    <p><strong>Precio:</strong> L {{links.price}}</p>
-                </div>
             </div>
-
-            {{!-- agregar boton --}}
-            <form action="/checkout" method="POST">
-                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="pk_test_51H5lSsKfonblX5qI0sCP1COhpM4VSGbXq4QNpSmFJLJe8GktNh8U7N8CXI8X7QPIEuIr7T5TEMZiZozEnX0l1qPt00Qt1M1sv2"
-                    data-amount={{links.price}} data-name={{links.name}} data-image="/img/logo2.png"
-                    data-locale="auto"></script>
-            </form>
-
+        </div>
+    </div>
+    <hr>
+    <div class="row d-flex justify-content-center wow fadeIn">
+        <div class="col-md-6 text-center">
+            <h4 class="my-4 h4">Seguro que te gusta</h4>
+        </div>
+    </div>
+    <div class="row wow fadeIn">
+        <div class="col-lg-4 col-md-12 mb-4">
+            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid"
+                alt="">
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid"
+                alt="">
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid"
+                alt="">
         </div>
     </div>
 </div>
-</div>
+{{>footer}}

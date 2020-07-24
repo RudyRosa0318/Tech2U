@@ -40,7 +40,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" style="color: white;" href="#" id="navbarDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            | {{user.fullName}}
+            | <i class="far fa-user"></i> {{user.fullName}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/Profile">Perfil</a>
@@ -49,17 +49,18 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="color: white" ; href="/cart">| <i class="fas fa-shopping-cart"></i> Carrito </a>
+          <a class="nav-link waves-effect" style="color: white" ; href="/cart">| <span class="badge red z-depth-1 mr-1">
+              1 </span><i class="fas fa-shopping-cart"></i> Carrito </a>
         </li>
         {{#unless user.userType}}
 
         {{/unless}}
         {{else}}
-        <li class="nav-item" style="color: white;">
-          <a class="nav-link" href="/">| <i class="fas fa-home"> </i> Inicio |</a>
+        <li class="nav-item">
+          <a class="nav-link" style="color: white;" href="/">| <i class="fas fa-home"> </i> Inicio |</a>
         </li>
-        <li class="nav-item" style="color: white;">
-          <a class="nav-link" href="/signin"> Iniciar Sesión |</a>
+        <li class="nav-item">
+          <a class="nav-link" style="color: white;" href="/signin"> Iniciar Sesión |</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" style="color: white;" href="/signup"> Registro |</a>

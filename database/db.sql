@@ -21,6 +21,7 @@ CREATE TABLE product (
   url_image VARCHAR(100) NULL,
   idImage VARCHAR(30) NULL,
   update_at datetime NULL,
+  qty INT NOT NULL,
   created_at timestamp NOT NULL DEFAULT current_timestamp,
   CONSTRAINT fk_category FOREIGN KEY(idCategory) REFERENCES category(idCategory),
   PRIMARY KEY (idProduct)
@@ -34,7 +35,7 @@ ALTER TABLE product
 CREATE TABLE cart(
   idCart INT(11) NOT NULL,
   idProduct INT(11) NOT NULL,
-  qty INt(10),
+  qty INT(10),
   total DECIMAL(10,2),  
   CONSTRAINT fk_product FOREIGN KEY(idProduct) REFERENCES product(idProduct),
   PRIMARY KEY (idCart)
