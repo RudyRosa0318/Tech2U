@@ -2,24 +2,16 @@
 {{>flash}}
 <div class="container p-4">
     <div class="row">
-        {{#if links}}
-        {{#each links}}
+        {{#if cate}}
+        {{#each cate}}
         <div class="col-md-4">
             <div class="card text-center mb-2" style="border-color: aqua;">
                 <div class="card-body">
-                    <a href="" target="_blank">
+                    <a  target="_blank">
                         <h3 class="card-title text-uppercase">
                             {{name}}
                         </h3>
                     </a>
-                    <img class="img-thumbnail col-lg-10 " src="{{url_image}}" alt="{{name}}">
-                    {{!-- <p class="m-2">Descripción:<br>{{description}}</p> --}}
-                    <p class="m-2" id="{{category.idCategory}}">Categoría:<br>{{category}}</p>
-                    <p class="m-2">Precio:<br>L. {{price}}</p>
-
-                    <p class="text-muted">
-                        {{timeago created_at}}
-                    </p>
                     <a class="btn btn-danger" href="/links/delete/{{idProduct}}">
                         Borrar
                     </a>
@@ -37,8 +29,8 @@
 
         <div class="col-md-4 mx-auto">
             <div class="card card-body text-center">
-                <p>No hay productos creados aún.</p>
-                <a href="/links/add">Añadir uno!</a>
+                <p>No hay Categorías creadass aún.</p>
+                <a href="/categories/add">Añadir uno!</a>
             </div>
         </div>
         {{/if}}

@@ -3,6 +3,7 @@ const router = express.Router();
 const {isLoggedin, isNotLoggedin} = require('../lib/auth');
 const { loadSignup, signUp, loadSignIn, signIn, out, pro,superuser } = require('../controller/auth.controller')
 
+
 // Registro
 router.get('/signup',isNotLoggedin, loadSignup);
 router.post('/signup', signUp);
@@ -18,3 +19,4 @@ router.post('/profile',superuser);
 //logout
 router.get('/logout',out);
 module.exports = router;
+

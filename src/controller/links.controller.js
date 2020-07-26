@@ -34,7 +34,6 @@ res.addtheLink = async (req, res) => {
 
 res.renderLinks = async (req, res) => {
   const links = await pool.query("SELECT C.name AS category, P.idProduct, P.name, P.description, P.price, P.idCategory, P.url_image,P.idImage,P.created_at,P.update_at FROM product AS P INNER JOIN category AS C ON p.idCategory = C.idCategory");
-
   res.render("links/list", { links });
 };
 

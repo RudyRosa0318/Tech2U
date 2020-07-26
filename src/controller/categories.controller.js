@@ -15,5 +15,10 @@ hud.AddTheCat = async (req, res) => {
     req.flash("success", "Guardado correctamente!");
     res.redirect("/categories");
 }
- 
+
+hud.renderCat = async (req, res) => {
+    const cate = await pool.query("SELECT * FROM category");
+    res.render("categories/list", { cate });
+  };
+
 module.exports = hud;
