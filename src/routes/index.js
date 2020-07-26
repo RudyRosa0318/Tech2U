@@ -19,7 +19,7 @@ router.get("/", renderIndex);
 
 router.get("/description", renderDescription);
 router.get("/description/:id", obtenerProductoPorId);
-router.get("/cart", renderCart);
+router.get("/cart" ,renderCart);
 //  router.get('/',indexc);
 
 router.post("/checkout", async (req, res) => {

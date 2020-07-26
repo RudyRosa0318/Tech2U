@@ -10,9 +10,6 @@ indexc.renderIndex = async (req, res) => {
 indexc.renderDescription = (req, res) => {
   res.render("products/description");
 };
-indexc.renderCart = (req, res) => {
-  res.render("links/cart");
-};
 
 indexc.obtenerProductoPorId = async (req, res, next) => {
   const { id } = req.params;
