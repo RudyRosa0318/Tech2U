@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../model/database");
 
+const {isLoggedin, isNotLoggedin} = require('../lib/auth');
+
 const stripe = require("stripe")(
   "sk_test_51H5lSsKfonblX5qIvwoTUBUJouItcvUbTLKlo2Ac7dlzybifJW1n7kj6XESVzhmSyS1p554Tf8SwAsLRnZvpIRAQ00T0PnH3hM"
 );
@@ -19,7 +21,7 @@ router.get("/", renderIndex);
 
 router.get("/description", renderDescription);
 router.get("/description/:id", obtenerProductoPorId);
-//  router.get('/',indexc);
+
 
 router.post("/checkout", async (req, res) => {
   console.log(req.body);
