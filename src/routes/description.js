@@ -1,13 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const {isLoggedin, isNotLoggedin} = require('../lib/auth');
+const { renderIndexz } = require('../controller/description.controller');
 
-const { description } = require('../controller/description.controller');
 
 
-
-router.get('/description', (req, res) => {
-     res.render('description');
- });
+router.get('/description',renderIndexz);
 
 //  router.get('/',indexc);
 
