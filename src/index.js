@@ -81,7 +81,6 @@ app.use(
 //rutas
 app.use(require("./routes/index"));
 app.use(require("./routes/auth"));
-app.use(require("./routes/description"));
 app.use(require("./routes/categories"));
 app.use(require("./routes/cart"));
 

@@ -2,7 +2,7 @@ const pool = require("../model/database");
 
 const hud = {};
 
-hud.AddCat = async (req, res) => {
+hud.AddCat = (req, res) => {
     res.render("categories/add");
 };
 

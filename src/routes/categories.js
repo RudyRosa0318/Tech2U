@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {isLoggedin, isNotLoggedin} = require('../lib/auth');
+const {isLoggedin} = require('../lib/auth');
 const { AddCat,AddTheCat,renderCat } = require('../controller/categories.controller')
 
 //Añadir categorias
