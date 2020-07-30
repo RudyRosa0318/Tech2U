@@ -1,25 +1,24 @@
 {{>navigation}}
 {{>slider}}
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12">
+    <div class="">
+        <div class="">
             <h1 class="mt-4">Categoría</h1>
             <h2 class="mt-4" id="{{products.idCategory}}">{{products.idCategory}}</h2>
             {{#if products}}
             <h2 class="mt-4" id="{{idCategory}}">ll{{idCategory}}</h2>
             <hr>
             <div class="row no-gutters justify-content-center">
-                <div class="row">
+                <div class="card-columns mt-2">
                     {{#each products}}
-                    <div class="card col-sm contanedorm" style="margin-left: 1%; margin-right: 1%;">
+                    <div class="card col-sm contanedorm" style="margin-left: 1%; margin-right: 1%; border-color: aqua;">
                         <img class="card-img-top" src="{{url_image}}" alt="{{name}}">
                         <div class="card-body div-design">
                             <hr>
                             <a href="/description/{{idProduct}}">{{name}}</a>
                             <h4>L {{price}}.00</h4>
-                            <a type="submit" class="btn center-block"
-                                style="background-color: #517a2c; color: #ffffff; width: 100%;"><i
-                                    class="fas fa-shopping-cart"></i> Comprar</a>
+                            <a type="submit" class="btn btn-primary btn-md my-0 p"><i
+                                class="fas fa-shopping-cart"></i> Comprar</a>
                         </div>
                     </div>
                     {{/each}}
@@ -31,107 +30,8 @@
 
 
         </div>
-
-        <h2 class="mt-4">Teclados</h2>
-        <div class="row no-gutters justify-content-center">
-            <div class="row">
-                <div class="card col-sm contanedorm" style="margin-left: 1%; margin-right: 1%;">
-                    <img class="card-img-top" src="/img/TECH.jpg" alt="Imagen del Producto">
-                    <div class="card-body">
-                        <hr>
-                        <a href="">Teclado Gaming XXTTR</a>
-                        <h4>$ 900.00</h4>
-                        <a type="submit" class="btn center-block"
-                            style="background-color: #517a2c; color: #ffffff; width: 100%;"><i
-                                class="fas fa-shopping-cart"></i> Comprar</a>
-                    </div>
-                </div>
-                <div class="card col-sm contanedorm" style="margin-left: 1%; margin-right: 1%;">
-                    <img class="card-img-top" src="/img/SGK4.JPG" alt="Imagen del Producto">
-                    <div class="card-body">
-                        <hr>
-                        <a href="">TECLADO GAMING SGK4</a>
-                        <h4>$ 950.00</h4>
-                        <a type="submit" class="btn center-block"
-                            style="background-color: #517a2c; color: #ffffff; width: 100%;"><i
-                                class="fas fa-shopping-cart"></i> Comprar</a>
-                    </div>
-                </div>
-                <div class="card col-sm contanedorm" style="margin-left: 1%; margin-right: 1%;">
-                    <img class="card-img-top" src="/img/teclado-redragon-k506-centaur-2.jpg" alt="Imagen del Producto">
-                    <div class="card-body div-design">
-                        <hr>
-                        <a href="">TECLADO REDRAGON K506</a>
-                        <h4>$ 1000.00</h4>
-                        <a type="submit" class="btn center-block"
-                            style="background-color: #517a2c; color: #ffffff; width: 100%;"><i
-                                class="fas fa-shopping-cart"></i> Comprar</a>
-                    </div>
-                </div>
-                <div class="card col-sm contanedorm" style="margin-left: 1%; margin-right: 1%;">
-                    <img class="card-img-top" src="/img/amiger-1200x1200.jpg" alt="Imagen del Producto">
-                    <div class="card-body">
-                        <hr>
-                        <a href="">XTECH amiger</a>
-                        <h4>$ 1500.00</h4>
-                        <a type="submit" class="btn center-block"
-                            style="background-color: #517a2c; color: #ffffff; width: 100%;"><i
-                                class="fas fa-shopping-cart"></i> Comprar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="mt-4">Speakers</h2>
-        <div class="row no-gutters justify-content-center">
-            <div class="row">
-                <div class="card col-sm contanedorm" style="margin-left: 1%; margin-right: 1%;">
-                    <img class="card-img-top" src="/img/microlab-tmn9bt-2-1-bluetooth-speaker-01-1200x1200.jpg"
-                        alt="Imagen del Producto">
-                    <div class="card-body div-design">
-                        <hr>
-                        <a href="">Microlab TMN-9BT</a>
-                        <h4>$ 3500.00</h4>
-                        <a type="submit" class="btn center-block"
-                            style="background-color: #517a2c; color: #ffffff; width: 100%;"><i
-                                class="fas fa-shopping-cart"></i> Comprar</a>
-                    </div>
-                </div>
-                <div class="card col-sm contanedorm" style="margin-left: 1%; margin-right: 1%;">
-                    <img class="card-img-top" src="/img/microlab-b77bt.jpg" alt="Imagen del Producto">
-                    <div class="card-body div-design">
-                        <hr>
-                        <a href="">Microlab B77BT</a>
-                        <h4>$ 1950.00</h4>
-                        <a type="submit" class="btn center-block"
-                            style="background-color: #517a2c; color: #ffffff; width: 100%;"><i
-                                class="fas fa-shopping-cart"></i> Comprar</a>
-                    </div>
-                </div>
-                <div class="card col-sm contanedorm" style="margin-left: 1%; margin-right: 1%;">
-                    <img class="card-img-top" src="/img/SBSA350-1200x1200.jpg" alt="Imagen del Producto">
-                    <div class="card-body div-design">
-                        <hr>
-                        <a href="">Creative A350 2.1 Speaker System</a>
-                        <h4>$ 3800.00</h4>
-                        <a type="submit" class="btn center-block"
-                            style="background-color: #517a2c; color: #ffffff; width: 100%;"><i
-                                class="fas fa-shopping-cart"></i> Comprar</a>
-                    </div>
-                </div>
-                <div class="card col-sm contanedorm" style="margin-left: 1%; margin-right: 1%;">
-                    <img class="card-img-top" src="/img/Nommo_Chroma_3-1200x1200.jpg" alt="Imagen del Producto">
-                    <div class="card-body div-design">
-                        <hr>
-                        <a href="">RAZER Nommo Chroma 2.0 </a>
-                        <h4>$ 5000.00</h4>
-                        <a type="submit" class="btn center-block"
-                            style="background-color: #517a2c; color: #ffffff; width: 100%;"><i
-                                class="fas fa-shopping-cart"></i> Comprar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
+
+
 {{>footer}}

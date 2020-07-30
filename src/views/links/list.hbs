@@ -1,10 +1,16 @@
 {{>navigation}}
 {{>flash}}
 <div class="container p-4">
-    <div class="row">
+    {{#unless links}}
+    <div class="alert alert-dark text-center" role="alert">
+        No hay productos creados aún <a href="/links/add"> <br>
+        Añade uno</a>
+    </div>
+    {{/unless}}
+    <div class="mt-3 card-columns">
         {{#if links}}
         {{#each links}}
-        <div class="col-md-4">
+        <div class="">
             <div class="card text-center mb-2" style="border-color: aqua;">
                 <div class="card-body">
                     <a href="" target="_blank">
@@ -32,15 +38,6 @@
         {{/each}}
 
 
-        {{else}}
-
-
-        <div class="col-md-4 mx-auto">
-            <div class="card card-body text-center">
-                <p>No hay productos creados aún.</p>
-                <a href="/links/add">Añadir uno!</a>
-            </div>
-        </div>
         {{/if}}
 
     </div>
