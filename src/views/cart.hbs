@@ -8,7 +8,15 @@
       <a href="/" class="btn btn-outline-info btn-sm float-right">Continuar Comprando</a>
       <div class="clearfix"></div>
     </div>
+    <h1>{{total}}</h1>
+   <h1>{{count}}</h1>
+    {{#unless links}}
+    <div class="alert text-center" role="alert">No has agregado nada a tu carrito <br>
+      <a href="/" class="btn btn-primary btn-md my-0 p">Buscar Productos <i class="fas fa-store"></i></a>
+    </div>
+    {{/unless}}
     <div class="card-body">
+      <!-- PRODUCT -->
 
       {{#if carrito.length}}
       <div class="row">
@@ -37,11 +45,7 @@
         {{/each}}
       </div>
       {{/if}}
-      {{#unless carrito}}
-      <div class="alert text-center" role="alert">No has agregado nada a tu carrito <br>
-        <a href="/" class="btn btn-primary btn-md my-0 p">Buscar Productos <i class="fas fa-store"></i></a>
-      </div>
-      {{/unless}}
+
 
 
       <!-- END PRODUCT -->

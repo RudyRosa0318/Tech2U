@@ -14,7 +14,13 @@
                             <a href="">
                                 <span class="badge purple mr-1">{{links.category}}</span>
                             </a>
-                             </div>
+                            <a href="">
+                                <span class="badge blue mr-1">New</span>
+                            </a>
+                            <a href="">
+                                <span class="badge red mr-1">Bestseller</span>
+                            </a>
+                        </div>
                         <p class="lead">
                             <span>L {{links.price}} </span>
                         </p>
@@ -25,9 +31,7 @@
                         {{#if user}}
 
                         <form action="/cart/{{links.idProduct}}" method="post" class="d-flex justify-content-left">
-                            <span>Cantidad: </span>
-                            <input name="qty" id="qty" type="number" step="1" max="99" min="1" class="" size="4"
-                                required>
+                            <input name="qty" id="qty" type="number" step="1" max="99" min="1" class="" size="4" required>
                             <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
                                 <i class="fas fa-shopping-cart ml-1"></i>
                             </button>

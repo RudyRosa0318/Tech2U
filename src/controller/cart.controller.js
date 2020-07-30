@@ -3,6 +3,7 @@ const cart = {};
 
 cart.renderCarts = (req, res) => {
   const carrito = req.session.cart;
+  // res.send(carrito);
   let total = 0;
   for (const index of carrito) {
     total = total + index.total;
@@ -30,8 +31,8 @@ cart.addCart = async (req, res) => {
     qty,
     total: price * qty,
     url_image,
-
   });
+
   req.session.cart = carrito;
   res.redirect("/cart");
 };
