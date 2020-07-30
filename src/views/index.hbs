@@ -3,22 +3,21 @@
 <div class="container">
     <div class="">
         <div class="">
-            <h1 class="mt-4">Categoría</h1>
-            <h2 class="mt-4" id="{{products.idCategory}}">{{products.idCategory}}</h2>
+            <h1 class="mt-4">Productos</h1>
+
             {{#if products}}
-            <h2 class="mt-4" id="{{idCategory}}">ll{{idCategory}}</h2>
             <hr>
             <div class="row no-gutters justify-content-center">
                 <div class="card-columns mt-2">
                     {{#each products}}
-                    <div class="card col-sm contanedorm" style="margin-left: 1%; margin-right: 1%; border-color: aqua;">
+                    <div class="card contanedorm" style="margin-left: 1%; margin-right: 1%; border-color: #28A745;">
                         <img class="card-img-top" src="{{url_image}}" alt="{{name}}">
                         <div class="card-body div-design">
                             <hr>
                             <a href="/description/{{idProduct}}">{{name}}</a>
                             <h4>L {{price}}.00</h4>
                             <a href="/description/{{idProduct}}" type="submit" class="btn btn-primary btn-md my-0 p"><i
-                                class="fas fa-shopping-cart"></i> Comprar</a>
+                                    class="fas fa-shopping-cart"></i> Comprar</a>
                         </div>
                     </div>
                     {{/each}}
