@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VEANME">
     {{!-- GOOGLE FONTS --}}
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     {{!-- Bootstrap 4 --}}
@@ -12,14 +13,17 @@
     <script src="https://kit.fontawesome.com/6656c56aff.js" crossorigin="anonymous"></script>
     {{!-- My Style --}}
     <link rel="stylesheet" href="/css/styles.css">
-    
+    <link rel="shortcut icon" type="image/x-icon" href="/img/icon.ico" />
+
+
     <title>Tech2u</title>
     <style>
-        .blur{
+        .blur {
             margin: 0;
             padding: 0;
         }
-        .blur:before{
+
+        .blur:before {
             content: '';
             position: fixed;
             width: 100vw;
@@ -35,18 +39,19 @@
             -ms-filter: blur(6px);
             filter: blur(6px);
         }
-        .contact-form
-        {
+
+        .contact-form {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             width: 400px;
             height: 500px;
             padding: 80px 40px;
             box-sizing: border-box;
-            background: rgba(0,0,0,.5);
+            background: rgba(0, 0, 0, .5);
         }
+
         .avatar {
             position: absolute;
             width: 80px;
@@ -56,6 +61,7 @@
             top: calc(-80px/2);
             left: calc(50% - 40px);
         }
+
         .contact-form h2 {
             margin: 0;
             padding: 0 0 20px;
@@ -63,21 +69,21 @@
             text-align: center;
             text-transform: uppercase;
         }
-        .contact-form p
-        {
+
+        .contact-form p {
             margin: 0;
             padding: 0;
             font-weight: bold;
             color: #fff;
         }
-        .contact-form input
-        {
+
+        .contact-form input {
             width: 100%;
             margin-bottom: 20px;
         }
+
         .contact-form input[type="text"],
-        .contact-form input[type="password"]
-        {
+        .contact-form input[type="password"] {
             border: none;
             border-bottom: 1px solid #fff;
             background: transparent;
@@ -86,6 +92,7 @@
             color: #fff;
             font-size: 16px;
         }
+
         .contact-form input[type="submit"] {
             height: 30px;
             color: #fff;
@@ -97,25 +104,26 @@
             outline: none;
             margin-top: 15%;
         }
-        .contact-form a
-        {
+
+        .contact-form a {
             color: #fff;
             font-size: 14px;
             font-weight: bold;
             text-decoration: none;
         }
+
         input[type="checkbox"] {
             width: 20%;
         }
     </style>
 </head>
 
-<body>  
+<body>
 
-    <div >
+    <div>
         {{{body}}}
     </div>
-    
+
     {{!-- SCRIPTS --}}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -127,6 +135,7 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
     <script src="/dist/bundle.js"></script>
-    
+
 </body>
+
 </html>

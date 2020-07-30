@@ -30,7 +30,8 @@
                         <p>{{links.description}}</p>
                         {{#if user}}
 
-                        <form class="d-flex justify-content-left">
+                        <form action="/cart/{{links.idProduct}}" method="post" class="d-flex justify-content-left">
+                            <input name="qty" id="qty" type="number" step="1" max="99" min="1" class="" size="4" required>
                             <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
                                 <i class="fas fa-shopping-cart ml-1"></i>
                             </button>
@@ -40,13 +41,9 @@
                             <button class="btn btn-primary btn-md my-0 p" type="submit" onclick="#pay">Add to cart
                                 <i class="fas fa-shopping-cart ml-1"></i>
                             </button>
-                            <script src="https://checkout.stripe.com/checkout.js" 
-                            class="stripe-button" id="pay"
+                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="pay"
                                 data-key="pk_test_51H5lSsKfonblX5qI0sCP1COhpM4VSGbXq4QNpSmFJLJe8GktNh8U7N8CXI8X7QPIEuIr7T5TEMZiZozEnX0l1qPt00Qt1M1sv2"
-                               
-                                data-amount={{links.price}} 
-                                data-name={{links.name}} 
-                                data-image="/img/logo2.png"
+                                data-amount={{links.price}} data-name={{links.name}} data-image="/img/logo2.png"
                                 data-locale="auto">
                                 </script>
                         </form>

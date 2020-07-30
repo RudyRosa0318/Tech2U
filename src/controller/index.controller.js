@@ -4,7 +4,7 @@ const pool = require("../model/database");
 indexc.renderIndex = async (req, res) => {
   const products = await pool.query("SELECT * FROM product");
   const category = await pool.query("SELECT * FROM category");
-  
+
   res.render("index", { products, category });
 };
 indexc.renderDescription = (req, res) => {
@@ -18,12 +18,10 @@ indexc.obtenerProductoPorId = async (req, res, next) => {
       "SELECT C.name AS category, P.idProduct, P.name, P.description, P.price, P.idCategory, P.url_image,P.idImage,P.created_at,P.update_at FROM product AS P INNER JOIN category AS C ON p.idCategory = C.idCategory WHERE idProduct = ?",
       [id]
     );
-    console.log(links[0]);
     res.render("products/description", {
       links: links[0],
     });
   } catch (error) {
-    // res.redirect("/");
     res.send(error);
   }
 };
@@ -34,7 +32,10 @@ indexc.checkout = async (req, res) => {
   console.log(req.body);
   const prod = await pool.query("SELECT * FROM product");
   const user = await pool.query("SELECT * FROM users");
-  const Realprice = await pool.query("SELECT price FROM product WHERE idProduct = ?",[idProduct])
+  const Realprice = await pool.query(
+    "SELECT price FROM product WHERE idProduct = ?",
+    [idProduct]
+  );
   const { price, description } = req.params;
   const { idUser } = req.params;
   // Crea un Payment Intent para iniciar un flujo de compra.
@@ -59,10 +60,10 @@ indexc.checkout = async (req, res) => {
     customer: idUser,
     description: description,
   });
-  console.log(charge);
-  console.log(customer);
-  console.log(description);
-  console.log(price);
+  // console.log(charge);
+  // console.log(customer);
+  // console.log(description);
+  // console.log(price);
 
   res.send("Recibido");
 };

@@ -27,6 +27,7 @@ log.pro = (req, res) => {
 };
 
 log.out = (req, res) => {
+    req.session.cart = [];
     req.logOut();
     res.redirect('/')
     res.redirect(req.get('referer'));
