@@ -4,9 +4,6 @@ const pool = require("../model/database");
 
 const {isLoggedin, isNotLoggedin} = require('../lib/auth');
 
-const stripe = require("stripe")(
-  "sk_test_51H5lSsKfonblX5qIvwoTUBUJouItcvUbTLKlo2Ac7dlzybifJW1n7kj6XESVzhmSyS1p554Tf8SwAsLRnZvpIRAQ00T0PnH3hM"
-);
 
 const {
   renderIndex,
@@ -21,6 +18,7 @@ router.get("/", renderIndex);
 router.get("/description", renderDescription);
 router.get("/description/:id", obtenerProductoPorId);
 
-router.post("/checkout", checkout)
+router.post("/checkout/:id", checkout)
+
 
 module.exports = router;

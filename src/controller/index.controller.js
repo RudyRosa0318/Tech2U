@@ -1,6 +1,8 @@
 const indexc = {};
 const pool = require("../model/database");
-
+const stripe = require("stripe")(
+  "sk_test_51H5lSsKfonblX5qIvwoTUBUJouItcvUbTLKlo2Ac7dlzybifJW1n7kj6XESVzhmSyS1p554Tf8SwAsLRnZvpIRAQ00T0PnH3hM"
+);
 indexc.renderIndex = async (req, res) => {
   const products = await pool.query("SELECT * FROM product");
   const category = await pool.query("SELECT * FROM category");
@@ -27,22 +29,21 @@ indexc.obtenerProductoPorId = async (req, res, next) => {
 };
 //Asi se hacen los controllers
 indexc.checkout = async (req, res) => {
-  const { idProduct } = req.params;
+  const { id } = req.params;
 
   console.log(req.body);
-  const prod = await pool.query("SELECT * FROM product");
   const user = await pool.query("SELECT * FROM users");
-  const Realprice = await pool.query(
-    "SELECT price FROM product WHERE idProduct = ?",
-    [idProduct]
+  const product = await pool.query(
+    "SELECT * FROM product WHERE idProduct = ?",
+    [id]
   );
-  const { price, description } = req.params;
   const { idUser } = req.params;
+  const {price,name,description} = product[0]
   // Crea un Payment Intent para iniciar un flujo de compra.
   let paymentIntent = await stripe.paymentIntents.create({
-    amount: 50000,
+    amount: price,
     currency: "usd",
-    description: "Mi primer pago",
+    description: name,
   });
 
   // Completa el pago usando una tarjeta de prueba.
@@ -54,17 +55,14 @@ indexc.checkout = async (req, res) => {
     email: req.body.stripeEmail,
     source: req.body.stripeToken,
   });
-  const charge = stripe.charges.create({
-    amount: 20,
-    currency: price,
-    customer: idUser,
-    description: description,
-  });
+        const charge = stripe.charges.create({
+          amount: 20,
+          currency: price,
+          customer: idUser,
+          description: name,
+        });
   // console.log(charge);
-  // console.log(customer);
-  // console.log(description);
-  // console.log(price);
-
+  // console.log(customer
   res.send("Recibido");
 };
 
