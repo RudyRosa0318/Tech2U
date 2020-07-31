@@ -3,7 +3,8 @@ const pool = require("../model/database");
 const hud = {};
 
 hud.AddCat = (req, res) => {
-    res.render("categories/add");
+    const carrito = req.session.cart;
+    res.render("categories/add",{carrito});
 };
 
 hud.AddTheCat = async (req, res) => {
@@ -18,7 +19,8 @@ hud.AddTheCat = async (req, res) => {
 
 hud.renderCat = async (req, res) => {
     const cate = await pool.query("SELECT * FROM category");
-    res.render("categories/list", { cate });
+    const carrito = req.session.cart;
+    res.render("categories/list", { cate, carrito });
   };
 
 module.exports = hud;

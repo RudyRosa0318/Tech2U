@@ -7,8 +7,15 @@
                 <div class="card-body">
                     <form action="/links/add" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" placeholder="Nombre del Producto"
-                                autofocus>
+
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Producto</span>
+                            </div>
+                            <input type="text" name="name" class="form-control" placeholder="Nombre" autofocus>
+                            <input placeholder="Cantidad" type="number" name="qty" step="1" max="99" min="1"
+                                class="form-control">
                         </div>
 
                         <div class="input-group mb-3">
@@ -18,13 +25,14 @@
                             <input type="number" name="price" class="form-control" aria-label="Cantidad"
                                 placeholder="1234.00">
                         </div>
-                        <div class="form-group">
+                        <div class="input-group mb-3">
                             <select class="form-control" name="idCategory">
                                 <option value="" disabled selected hidden>Categoría</option>
                                 {{#each category}}
                                 <option id="{{idCategory}}" value="{{idCategory}}">{{name}}</option>
                                 {{/each}}
                             </select>
+
                         </div>
                         <div class="form-group">
                             <textarea name="description" rows="2" class="form-control"
@@ -36,7 +44,7 @@
                                 <input name="toggle" type="checkbox" class="custom-control-input" id="customSwitch_t">
                                 <label class="custom-control-label" for="customSwitch_t" id="label_t">URL</label>
                             </div>
-                       
+
                             <div class="custom-file mb-1">
                                 <input name="imagen" type="file" class="custom-file-input" id="customFileLangHTML">
                                 <label class="custom-file-label" for="customFileLangHTML" id="l_customFileLangHTML"

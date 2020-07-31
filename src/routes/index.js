@@ -15,7 +15,7 @@ const {
 } = require("../controller/index.controller");
 
 router.get("/", renderIndex);
-router.get("/description", renderDescription);
+
 router.get("/description/:id", obtenerProductoPorId);
 
 router.post("/checkout/:id", checkout)

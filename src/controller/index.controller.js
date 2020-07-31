@@ -9,9 +9,7 @@ indexc.renderIndex = async (req, res) => {
   const carrito = req.session.cart;
   res.render("index", { products, category, carrito });
 };
-indexc.renderDescription = (req, res) => {
-  res.render("products/description");
-};
+
 
 indexc.obtenerProductoPorId = async (req, res, next) => {
   const { id } = req.params;
@@ -20,8 +18,10 @@ indexc.obtenerProductoPorId = async (req, res, next) => {
       "SELECT C.name AS category, P.idProduct, P.name, P.description, P.price, P.idCategory, P.url_image,P.idImage,P.created_at,P.update_at FROM product AS P INNER JOIN category AS C ON p.idCategory = C.idCategory WHERE idProduct = ?",
       [id]
     );
+    const carrito = req.session.cart;
     res.render("products/description", {
       links: links[0],
+       carrito,
     });
   } catch (error) {
     res.send(error);

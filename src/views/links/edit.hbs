@@ -1,59 +1,71 @@
 {{>navigation}}
 {{>flash}}
-<div class="col-md-4 mx-auto">
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
 
-    <div class="card mb-2">
-        <div class="card-body">
-            <form action="/links/edit/{{link.idProduct}}" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <input type="text" name="name" class="form-control" placeholder="Nombre del ProdUctO"
-                        value="{{link.name}}" autofocus>
-                </div>
-                <div class="form-group">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/links/edit/{{link.idProduct}}" method="POST" enctype="multipart/form-data">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Producto</span>
+                            </div>
+                            <input type="text" name="name" class="form-control" placeholder="Nombre"
+                                value="{{link.name}}" autofocus>
+                            <input placeholder="Cantidad" type="number" name="qty" step="1" max="99" min="1"
+                                value="{{link.qty}}" class="form-control">
+                        </div>
 
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">L</span>
-                    </div>
-                    <input type="number" name="price" class="form-control" aria-label="Cantidad" placeholder="1234.00"
-                        value="{{link.price}}">
-                </div>
-                <div class="form-group">
-                    <select class="form-control" name="idCategory">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">L</span>
+                            </div>
+                            <input type="number" name="price" class="form-control" aria-label="Cantidad"
+                                placeholder="1234.00" value="{{link.price}}">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">{{link.category}}</span>
+                            </div>
+                            <select class="form-control" name="idCategory">
+                                <option value="" disabled selected hidden>Categoría</option>
+                                {{#each category}}
+                                <option id="{{idCategory}}" value="{{idCategory}}">{{name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="description" rows="2" class="form-control"
+                                placeholder="Descripción">{{link.description}}</textarea>
+                        </div>
+                        <div class="form-group">
 
-                        {{!-- <option id="{{link.idCategory}}" disabled selected hidden>{{category.name}}</option> --}}
-                        {{#each category}}
-                        <option id="{{idCategory}}" value="{{idCategory}}">{{name}}</option>
-                        {{/each}}
-                    </select>
+                            <div class="m-1 custom-control custom-switch">
+                                <input name="toggle" type="checkbox" class="custom-control-input" id="customSwitch_t">
+                                <label class="custom-control-label" for="customSwitch_t" id="label_t">URL</label>
+                            </div>
+
+                            <div class="custom-file mb-1">
+                                <input name="imagen" type="file" class="custom-file-input" id="customFileLangHTML">
+                                <label class="custom-file-label" for="customFileLangHTML" id="l_customFileLangHTML"
+                                    data-browse="Elegir">Seleccionar archivo</label>
+                                <input type="url" id="url" name="url_image" class="form-control mb-1"
+                                    placeholder="URL de la Imagen">
+                            </div>
+
+
+                            <div class="form-group mt-1">
+                                <button class="btn btn-success btn-block" id="boton">
+                                    Actualizar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-        </div>
-        <div class="form-group">
-            <textarea name="description" rows="2" class="form-control"
-                placeholder="Description">{{link.description}}</textarea>
-        </div>
-        <div class="form-group">
-            <div class="m-1 custom-control custom-switch">
-                <input name="toggle" type="checkbox" class="custom-control-input" id="customSwitch_t">
-                <label class="custom-control-label" for="customSwitch_t" id="label_t">URL</label>
             </div>
-            <div class="custom-file mb-1">
-                <input name="imagen" type="file" class="custom-file-input" id="customFileLangHTML">
-                <label class="custom-file-label" for="customFileLangHTML" id="l_customFileLangHTML"
-                    data-browse="Elegir">Seleccionar archivo</label>
-                <input type="url" id="url" name="url_image" class="form-control mb-1" placeholder="URL de la Imagen">
-            </div>
-
-
-            <div class="form-group mt-1">
-                <button class="btn btn-success btn-block" id="boton">
-                    Guardar
-                </button>
-            </div>
         </div>
-        </form>
     </div>
 </div>
-</div>
+
 {{>footer}}

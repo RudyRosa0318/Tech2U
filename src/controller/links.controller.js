@@ -6,11 +6,12 @@ const res = {};
 
 res.AddLink = async (req, res) => {
   const category = await pool.query("SELECT * FROM category");
-  res.render("links/add", { category });
+  const carrito = req.session.cart;
+  res.render("links/add", { category, carrito });
 };
 
 res.addtheLink = async (req, res) => {
-  const { name, description, price, idCategory, url_image } = req.body;
+  const { name, description, price, idCategory, url_image,qty } = req.body;
   if (req.file) {
     const { filename, originalname, mimetype, size, path } = req.file;
     const newImage = {
@@ -26,6 +27,7 @@ res.addtheLink = async (req, res) => {
       description,
       price,
       idCategory,
+      qty,
       idImage: filename,
       url_image: "/img/upload/" + filename,
     };
@@ -50,7 +52,8 @@ res.renderLinks = async (req, res) => {
   const links = await pool.query(
     "SELECT C.name AS category, P.idProduct, P.name, P.description, P.price, P.idCategory, P.url_image,P.idImage,P.created_at,P.update_at FROM product AS P INNER JOIN category AS C ON p.idCategory = C.idCategory"
   );
-  res.render("links/list", { links });
+  const carrito = req.session.cart;
+  res.render("links/list", { links, carrito });
 };
 
 res.deleteLink = async (req, res) => {
@@ -63,18 +66,17 @@ res.deleteLink = async (req, res) => {
 res.renderEditLink = async (req, res) => {
   const { idProduct, idCategory } = req.params;
   const category = await pool.query("SELECT * FROM category");
-  const link = await pool.query("SELECT * FROM product WHERE idProduct = ?", [
-    idProduct,
-  ]);
-  const cat = await pool.query(
-    "SELECT n.idCategory as 'IdCatProd', s.idCategory,s.name from product n JOIN category s on s.idCategory = n.idCategory;"
+  const link = await pool.query(
+    "SELECT C.name AS category, P.idProduct, P.name, P.description, P.price, P.idCategory, P.url_image,P.idImage,P.qty,P.created_at,P.update_at FROM product AS P INNER JOIN category AS C ON p.idCategory = C.idCategory WHERE idProduct = ?",
+    [idProduct]
   );
-  res.render("links/edit", { link: link[0], cat: cat[0], category });
+  const carrito = req.session.cart;
+  res.render("links/edit", { link: link[0], category, carrito });
 };
 
 res.editLink = async (req, res) => {
   const { idProduct } = req.params;
-  const { name, description, price, idCategory } = req.body;
+  const { name, description, price, idCategory,qty } = req.body;
 
   if (req.file) {
     const { filename, originalname, mimetype, size, path } = req.file;
@@ -113,6 +115,7 @@ res.editLink = async (req, res) => {
       price,
       description,
       idCategory,
+      qty,
       url_image: "/img/upload/" + filename,
     };
 
@@ -144,6 +147,7 @@ res.editLink = async (req, res) => {
           description,
           price,
           idCategory,
+          qty,
           url_image: url,
         };
         await pool.query("UPDATE product set ? WHERE idProduct = ?", [newLink,idProduct]);
@@ -156,6 +160,7 @@ res.editLink = async (req, res) => {
           description,
           price,
           idCategory,
+          qty,
           url_image: url,
         };
         await pool.query("UPDATE product set ? WHERE idProduct = ?", [newLink,idProduct]);
@@ -169,6 +174,7 @@ res.editLink = async (req, res) => {
         price,
         description,
         idCategory,
+        qty,
       };
       await pool.query("UPDATE product set ? WHERE idProduct = ?", [
         newLink,
