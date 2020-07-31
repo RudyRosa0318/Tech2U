@@ -41,7 +41,7 @@ indexc.checkout = async (req, res) => {
   const {price,name,description} = product[0]
   // Crea un Payment Intent para iniciar un flujo de compra.
   let paymentIntent = await stripe.paymentIntents.create({
-    amount: price,
+    amount: (price)*100,
     currency: "usd",
     description: name,
   });
@@ -57,7 +57,7 @@ indexc.checkout = async (req, res) => {
   });
         const charge = stripe.charges.create({
           amount: 20,
-          currency: price,
+          currency: (price)*100,
           customer: idUser,
           description: name,
         });
