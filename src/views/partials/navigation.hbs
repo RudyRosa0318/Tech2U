@@ -38,10 +38,13 @@
             <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
           </div>
         </li>
+        {{#if carrito}}
         <li class="nav-item">
-          <a class="nav-link waves-effect" style="color: white" ; href="/cart">| <span class="badge badge-warning z-depth-1 mr-1">
-               </span><i class="fas fa-shopping-cart"></i> Carrito </a>
+          <a class="nav-link waves-effect" style="color: white" ; href="/cart">| <span
+              class="badge badge-warning z-depth-1 mr-1">
+              {{carrito.length}}</span><i class="fas fa-shopping-cart"></i> Carrito </a>
         </li>
+        {{/if}}
         {{#unless user.userType}}
 
         {{/unless}}
@@ -50,7 +53,8 @@
           <a class="nav-link" style="color: white;" href="/">| <i class="fas fa-home"> </i> Inicio |</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="color: white;" href="/signin"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión |</a>
+          <a class="nav-link" style="color: white;" href="/signin"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+            |</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" style="color: white;" href="/signup"><i class="far fa-address-card"></i> Registro |</a>

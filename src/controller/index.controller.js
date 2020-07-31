@@ -6,8 +6,8 @@ const stripe = require("stripe")(
 indexc.renderIndex = async (req, res) => {
   const products = await pool.query("SELECT * FROM product");
   const category = await pool.query("SELECT * FROM category");
-
-  res.render("index", { products, category });
+  const carrito = req.session.cart;
+  res.render("index", { products, category, carrito });
 };
 indexc.renderDescription = (req, res) => {
   res.render("products/description");
@@ -38,10 +38,10 @@ indexc.checkout = async (req, res) => {
     [id]
   );
   const { idUser } = req.params;
-  const {price,name,description} = product[0]
+  const { price, name, description } = product[0];
   // Crea un Payment Intent para iniciar un flujo de compra.
   let paymentIntent = await stripe.paymentIntents.create({
-    amount: (price)*100,
+    amount: price * 100,
     currency: "usd",
     description: name,
   });
@@ -55,12 +55,12 @@ indexc.checkout = async (req, res) => {
     email: req.body.stripeEmail,
     source: req.body.stripeToken,
   });
-        const charge = stripe.charges.create({
-          amount: 20,
-          currency: (price)*100,
-          customer: idUser,
-          description: name,
-        });
+  const charge = stripe.charges.create({
+    amount: 20,
+    currency: price * 100,
+    customer: idUser,
+    description: name,
+  });
   // console.log(charge);
   // console.log(customer
   res.send("Recibido");

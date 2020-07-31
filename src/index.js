@@ -13,10 +13,9 @@ const passport = require("passport");
 const multer = require("multer");
 const shortid = require("shortid");
 
-
 //Para manejar los metodos de pago
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY
-const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
 
 //Inicializar
 const app = express();
@@ -58,8 +57,10 @@ app.use((req, res, next) => {
   app.locals.success = req.flash("success");
   app.locals.warning = req.flash("warning");
   app.locals.user = req.user;
+  if (!req.session.cart) {
+    req.session.cart = [];
+  }
   next();
-  
 });
 
 //routas
@@ -85,10 +86,8 @@ app.use(require("./routes/auth"));
 app.use(require("./routes/categories"));
 app.use(require("./routes/cart"));
 
-
-
-app.use("/categories",require("./routes/categories"))<
-app.use("/links", require("./routes/links"));
+app.use("/categories", require("./routes/categories")) <
+  app.use("/links", require("./routes/links"));
 app.use("/", require("./routes/index"));
 
 //Public
