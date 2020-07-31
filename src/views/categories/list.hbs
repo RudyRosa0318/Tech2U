@@ -1,13 +1,17 @@
 {{>navigation}}
 {{>flash}}
 <div class="container p-4">
+    <a class="btn btn-primary btn-md my-0 p" href="/categories/add">
+        <i class="fas fa-plus-square text-white" style="font-size: 2em;"></i><br> Agregar
+    </a>
     <div class="row">
+
         {{#if cate}}
         {{#each cate}}
         <div class="col-md-4">
             <div class="card text-center mb-2" style="border-color: aqua;">
                 <div class="card-body">
-                    <a  target="_blank">
+                    <a target="_blank">
                         <h3 class="card-title text-uppercase">
                             {{name}}
                         </h3>
