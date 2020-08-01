@@ -47,11 +47,14 @@ ALTER TABLE cart
 --Table Users
 CREATE TABLE users (
   idUser INT(11) NOT NULL,
+
   email VARCHAR(30) NOT NULL,
   password VARCHAR(60) NOT NULL,
   fullName VARCHAR(100) NOT NULL,
   userType BOOLEAN NOT NULL DEFAULT 0,
   idCart INT(11) NULL,
+  token VARCHAR (200) NULL,
+  expiration DATETIME NULL ,
   CONSTRAINT fk_cart FOREIGN KEY(idCart) REFERENCES cart(idCart)
 );
 ALTER TABLE users

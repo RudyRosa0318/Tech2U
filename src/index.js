@@ -12,6 +12,7 @@ const passport = require("passport");
 //esto me sirve para manejar las imagenes
 const multer = require("multer");
 const shortid = require("shortid");
+require("dotenv").config();
 
 //Para manejar los metodos de pago
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
