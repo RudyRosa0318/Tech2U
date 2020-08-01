@@ -2,7 +2,7 @@
 {{>flash}}
 
 <div class="container p-4">
-    <a class="btn btn-primary btn-md my-0 p" href="/links/add/">
+    <a class="btn btn-md my-0 p" href="/links/add/" style=" background-color: #007717; color: #ffff;">
         <i class="fas fa-plus-square text-white" style="font-size: 2em;"></i><br> Agregar
     </a>
     {{#unless links}}
@@ -18,7 +18,7 @@
 
         {{#each links}}
         <div class="">
-            <div class="card text-center mb-2" style="border-color: aqua;">
+            <div class="card text-center mb-2" style="border-color:#28A745;">
                 <div class="card-body">
                     <a href="" target="_blank">
                         <h3 class="card-title text-uppercase">
@@ -27,17 +27,17 @@
                     </a>
                     <img class="img-thumbnail col-lg-10 " src="{{url_image}}" alt="{{name}}">
                     {{!-- <p class="m-2">Descripción:<br>{{description}}</p> --}}
-                    <p class="m-2" id="{{category.idCategory}}">Categoría:<br>{{category}}</p>
-                    <p class="m-2">Precio:<br>L. {{price}}</p>
+                    <p class="m-2" id="{{category.idCategory}}"> <strong>Categoría:</strong> <br>{{category}}</p>
+                    <p class="m-2"> <strong>Precio:</strong> <br>L. {{price}}</p>
 
                     <p class="text-muted">
                         {{timeago created_at}}
                     </p>
-                    <a class="btn btn-danger" href="/links/delete/{{idProduct}}">
-                        Borrar
+                    <a class="btn" style="background-color: #007717; color: #ffff;" href="/links/edit/{{idProduct}}">
+                      <i class="fas fa-edit"></i>  Editar
                     </a>
-                    <a class="btn btn-secondary" href="/links/edit/{{idProduct}}">
-                        Editar
+                    <a class="btn btn-danger" href="/links/delete/{{idProduct}}">
+                        <i class="fa fa-trash" aria-hidden="true"></i> Borrar
                     </a>
                 </div>
             </div>
