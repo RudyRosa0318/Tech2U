@@ -7,7 +7,7 @@ const crypto = require("crypto");
 const enviarCorreo = require("../helpers/email");
 
 const bcrypt = require("bcrypt-nodejs");
-
+require('dotenv').config();
 
 log.loadSignup = (req, res) => {
   res.render("auth/signup");
@@ -42,11 +42,12 @@ log.out = (req, res) => {
 };
 
 log.superuser = async (req, res) => {
-  const { secretA, sumadre } = req.body;
-  if (secretA == "admin") {
-    await pool.query("UPDATE users set userType= ? WHERE idUser = ?", [0, 2]);
+  const {idUser } = req.params;
+  const {secretA,nameID} = req.body;
+  if (secretA == process.env.ADMINPASS) {
+    await pool.query("UPDATE users set userType= ? WHERE idUser = ?", [1, nameID]);
     req.flash("success", "Ahora eres Administrador!");
-    console.log();
+    console.log(idUser);
     res.redirect("/links");
   } else {
     req.flash("warning", "Codigo incorrecto!");

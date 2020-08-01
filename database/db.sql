@@ -47,7 +47,6 @@ ALTER TABLE cart
 --Table Users
 CREATE TABLE users (
   idUser INT(11) NOT NULL,
-
   email VARCHAR(30) NOT NULL,
   password VARCHAR(60) NOT NULL,
   fullName VARCHAR(100) NOT NULL,
@@ -73,6 +72,16 @@ CREATE TABLE image(
   size INT NOT NULL,
   PRIMARY KEY (idImage)
 );
+
+-- CREATE TABLE UserAddress(
+--   idAdress INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
+--   adress VARCHAR(150) NOT NULL,
+--   city VARCHAR (60) NOT NULL,
+--   department VARCHAR (60) NOT NULL,
+--   cellphone INT(8) NOT NULL,
+-- )
+-- ALTER TABLE UserAddress
+--   ADD PRIMARY KEY (idAdress);
 
 
 

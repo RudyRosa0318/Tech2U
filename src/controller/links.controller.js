@@ -2,6 +2,7 @@ const pool = require("../model/database");
 const { unlink } = require("fs-extra");
 const paths = require("path");
 const { ifError } = require("assert");
+const { user } = require("../config/email");
 const res = {};
 
 res.AddLink = async (req, res) => {
