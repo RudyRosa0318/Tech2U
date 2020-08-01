@@ -101,7 +101,7 @@ log.enviarToken = async (req, res, next) => {
     "success",
     "Se envió un enlace para reestablecer tu contraseña a tu correo electrónico"
   );
-  res.redirect("/iniciar_sesion");
+  res.redirect("/signin");
 };
 
 log.formularioRestablecerPassword = (req, res, next) => {
@@ -132,7 +132,7 @@ log.validarToken = async (req, res, next) => {
 
     
   } catch (error) {
-    res.redirect("/iniciar_sesion");
+    res.redirect("/signin");
   }
 };
 
@@ -171,7 +171,7 @@ log.actualizarPassword = async (req, res, next) => {
 
   // Redireccionar al inicio de sesión
   req.flash("success", "Tu contraseña se ha actualizado correctamente");
-  res.redirect("/iniciar_sesion");
+  res.redirect("/signin");
 };
 
 
