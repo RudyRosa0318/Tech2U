@@ -1,11 +1,10 @@
+require('dotenv').config();
 module.exports = {
-
-    database: {
-        connectionLimit: 10,
-        host:'localhost',
-        user:'root',
-        password:'',
-        database:'db_tech2u'
-    }
-
+  database: {
+    connectionLimit: 10,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+  },
 };
