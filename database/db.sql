@@ -21,7 +21,7 @@ CREATE TABLE product (
   url_image VARCHAR(100) NULL,
   idImage VARCHAR(30) NULL,
   update_at datetime NULL,
-  qty INT NOT NULL,
+  qty INT DEFAULT(0) NOT NULL ,
   created_at timestamp NOT NULL DEFAULT current_timestamp,
   CONSTRAINT fk_category FOREIGN KEY(idCategory) REFERENCES category(idCategory),
   PRIMARY KEY (idProduct)
@@ -31,7 +31,7 @@ ALTER TABLE product
   MODIFY idProduct INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
 
 
---CART TABLE
+-- CART TABLE
 CREATE TABLE cart(
   idCart INT(11) NOT NULL,
   idProduct INT(11) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE cart(
 ALTER TABLE cart
   MODIFY idCart INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2;
 
---Table Users
+-- Table Users
 CREATE TABLE users (
   idUser INT(11) NOT NULL,
   email VARCHAR(30) NOT NULL,
