@@ -118,3 +118,4 @@ dist
 
 # Add variables.env
 variables.env
+.env

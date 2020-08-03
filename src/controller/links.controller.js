@@ -2,6 +2,7 @@ const pool = require("../model/database");
 const { unlink } = require("fs-extra");
 const paths = require("path");
 const { ifError } = require("assert");
+const { user } = require("../config/email");
 const res = {};
 
 res.AddLink = async (req, res) => {
@@ -11,7 +12,7 @@ res.AddLink = async (req, res) => {
 };
 
 res.addtheLink = async (req, res) => {
-  const { name, description, price, idCategory, url_image,qty } = req.body;
+  const { name, description, price, idCategory, url_image, qty } = req.body;
   if (req.file) {
     const { filename, originalname, mimetype, size, path } = req.file;
     const newImage = {
@@ -58,9 +59,14 @@ res.renderLinks = async (req, res) => {
 
 res.deleteLink = async (req, res) => {
   const { idProduct } = req.params;
-  await pool.query("DELETE FROM product WHERE idProduct = ?", [idProduct]);
-  req.flash("success", "Eliminado correctamente!");
-  res.redirect("/links");
+  try {
+    await pool.query("DELETE FROM product WHERE idProduct = ?", [idProduct]);
+    res.status(200).send("Se elimino el producto");
+  } catch (error) {
+    res.status(404);
+    console.log(error);
+  }
+
 };
 
 res.renderEditLink = async (req, res) => {
@@ -76,7 +82,7 @@ res.renderEditLink = async (req, res) => {
 
 res.editLink = async (req, res) => {
   const { idProduct } = req.params;
-  const { name, description, price, idCategory,qty } = req.body;
+  const { name, description, price, idCategory, qty } = req.body;
 
   if (req.file) {
     const { filename, originalname, mimetype, size, path } = req.file;
@@ -150,7 +156,7 @@ res.editLink = async (req, res) => {
           qty,
           url_image: url,
         };
-        await pool.query("UPDATE product set ? WHERE idProduct = ?", [newLink,idProduct]);
+        await pool.query("UPDATE product set ? WHERE idProduct = ?", [newLink, idProduct]);
         req.flash("success", "Editado correctamente!");
         res.redirect("/links");
       } else {
@@ -163,7 +169,7 @@ res.editLink = async (req, res) => {
           qty,
           url_image: url,
         };
-        await pool.query("UPDATE product set ? WHERE idProduct = ?", [newLink,idProduct]);
+        await pool.query("UPDATE product set ? WHERE idProduct = ?", [newLink, idProduct]);
         req.flash("success", "Editado correctamente!");
         res.redirect("/links");
       }

@@ -12,7 +12,7 @@ const passport = require("passport");
 //esto me sirve para manejar las imagenes
 const multer = require("multer");
 const shortid = require("shortid");
-require("dotenv").config();
+require('dotenv').config();
 
 //Para manejar los metodos de pago
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
@@ -41,7 +41,7 @@ app.set("view engine", ".hbs");
 app.use(flash());
 app.use(
   session({
-    secret: "ghjskdhf",
+    secret: process.env.SECRETPASS,
     resave: false,
     saveUninitialized: false,
     store: new MySQLStore(database),

@@ -14,7 +14,7 @@ const {
 router.get("/add", isLoggedin, AddLink);
 router.post("/add", isLoggedin, addtheLink);
 router.get("/", isLoggedin, renderLinks,);
-router.get("/delete/:idProduct", isLoggedin, deleteLink);
+router.get("/delete/product/:idProduct", isLoggedin, deleteLink);
 router.get("/edit/:idProduct", isLoggedin, renderEditLink);
 router.post("/edit/:idProduct", isLoggedin, editLink);
 

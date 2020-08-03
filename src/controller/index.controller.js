@@ -1,8 +1,7 @@
+require('dotenv').config();
 const indexc = {};
 const pool = require("../model/database");
-const stripe = require("stripe")(
-  "sk_test_51H5lSsKfonblX5qIvwoTUBUJouItcvUbTLKlo2Ac7dlzybifJW1n7kj6XESVzhmSyS1p554Tf8SwAsLRnZvpIRAQ00T0PnH3hM"
-);
+const stripe = require("stripe")(process.env.STRIPE);
 indexc.renderIndex = async (req, res) => {
   const products = await pool.query("SELECT * FROM product");
   const category = await pool.query("SELECT * FROM category");

@@ -5,12 +5,9 @@
 
             <div class="card">
                 <div class="card-body">
-                    
-                    <form action="/categories/add" method="POST">
+                    <form action="/categories/edit/{{category.idCategory}}" method="POST">
                         <div class="form-group">
-                            <h3 class="text-center">Agregar Categoría</h3>
-                            <hr>
-                            <input type="text" name="name" class="form-control" placeholder="Nombre de la Categoría"
+                            <input type="text" name="name" class="form-control" placeholder="Nombre de la Categoría" value="{{category.name}}"
                                 autofocus>
                         </div>
                         <div class="input-group ">
