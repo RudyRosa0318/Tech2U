@@ -1,4 +1,5 @@
 const pool = require("../model/database");
+const { default: Swal } = require("sweetalert2");
 
 const hud = {};
 
@@ -36,12 +37,10 @@ hud.editCat = async (req, res) => {
     await pool.query("UPDATE category set ? WHERE idCategory = ?", [nameUP, idCategory]);
     res.redirect("/categories");
 };
-
-hud.deleteCat = async (req, res) => {
+ hud.deleteCat = async (req, res) => {
     const { idCategory } = req.params;
     await pool.query("DELETE FROM category WHERE idCategory = ?", [idCategory]);
     req.flash("success", "Eliminado correctamente!");
     res.redirect("/categories");
-  };
-
+ }; 
 module.exports = hud;
