@@ -39,8 +39,12 @@ hud.editCat = async (req, res) => {
 };
  hud.deleteCat = async (req, res) => {
     const { idCategory } = req.params;
-    await pool.query("DELETE FROM category WHERE idCategory = ?", [idCategory]);
-    req.flash("success", "Eliminado correctamente!");
-    res.redirect("/categories");
+    try{
+        await pool.query("DELETE FROM category WHERE idCategory = ?", [idCategory]);
+        res.status(200).send("Se elimino la categoria");
+    } catch (error) {
+        res.status(404);
+        console.log(error);
+      }
  }; 
 module.exports = hud;

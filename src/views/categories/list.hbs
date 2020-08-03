@@ -20,9 +20,10 @@
                      <a class="btn btn-secondary" style="background-color: #007717; color: #ffff;" href="/categories/edit/{{idCategory}}">
                        <i class="fas fa-edit"></i> Editar
                     </a>
-                    <a class="btn btn-danger" href="/categories/delete/{{idCategory}}"> <i class="fa fa-trash" aria-hidden="true"></i>
+                    <button name="eliminar_categoria" class="btn btn-danger" data-categoria-id={{idCategory}}>
+                        <i class="fa fa-trash" aria-hidden="true"></i>
                         Borrar
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>

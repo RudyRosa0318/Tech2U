@@ -3,12 +3,12 @@ import Swal from "sweetalert2";
 
 // Obtener el nombre del botón desde el DOM
 const botonesEliminar = document.querySelectorAll(
-    "button[name='eliminar_producto']"
+    "button[name='eliminar_categoria']"
 );
 botonesEliminar.forEach((botonEliminar) => {
     // Agregar un evento al click del botón
     botonEliminar.addEventListener("click", (e) => {
-        const idProduct = e.target.dataset.productoId;
+        const idCategoria = e.target.dataset.categoriaId;
         Swal.fire({
             title: 'Estas seguro que deseas eliminar',
             text: "Sí, elimina este producto no sera posible recuperarlo!",
@@ -20,15 +20,15 @@ botonesEliminar.forEach((botonEliminar) => {
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.value) {
-                const url = `${location.origin}/links/delete/product/${idProduct}`;
+                const url = `${location.origin}/delete/${idCategoria}`;
                 axios.get(url,{
                     params:{
-                        idProduct
+                        idCategoria
                     }
                 }).then(function (response) {
                     Swal.fire("¡Eliminado!", response.data, "success");
                     setTimeout(() => {
-                        window.location.href = "/links";
+                        window.location.href = "/categories";
                     }, 2000);
                 }).catch(() => {
                     Swal.fire("ERROR", "!No se pudo eliminar el producto!", "error");
@@ -38,4 +38,3 @@ botonesEliminar.forEach((botonEliminar) => {
         })
     });
 });
-
