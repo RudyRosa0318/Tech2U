@@ -94,6 +94,13 @@ app.use("/", require("./routes/index"));
 //Public
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(function (req, res, next) {
+  res
+    .status(404)
+    .send("page not found");
+});
+
+
 //Servidor
 app.listen(app.get("port"));
 console.log("Servidor en el  puerto", app.get("port"));
