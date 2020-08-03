@@ -12,7 +12,7 @@ const passport = require("passport");
 //esto me sirve para manejar las imagenes
 const multer = require("multer");
 const shortid = require("shortid");
-require('dotenv').config();
+require("dotenv").config();
 
 //Para manejar los metodos de pago
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
@@ -87,19 +87,16 @@ app.use(require("./routes/auth"));
 app.use(require("./routes/categories"));
 app.use(require("./routes/cart"));
 
-app.use("/categories", require("./routes/categories")) <
-  app.use("/links", require("./routes/links"));
+app.use("/categories", require("./routes/categories"));
+app.use("/links", require("./routes/links"));
 app.use("/", require("./routes/index"));
 
 //Public
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(function (req, res, next) {
-  res
-    .status(404)
-    .send("page not found");
+  res.status(404).render("notfound");;
 });
-
 
 //Servidor
 app.listen(app.get("port"));

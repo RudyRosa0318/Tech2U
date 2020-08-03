@@ -25,7 +25,7 @@
         <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
           <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
             <h6><strong>L {{price}} <span class="text-muted">x</span> {{qty}} <br><span class="text-muted">=</span> L
-                {{total}}</strong></h6>
+                {{distanceFixed total}}</strong></h6>
           </div>
 
           <div class="col-2 col-sm-2 col-md-2 text-right">
@@ -60,13 +60,18 @@
         </div>
       </div>
       <div class="float-right" style="margin: 10px">
-        <a href="" class="btn btn-success float-right">Pagar</a>
+        <button class="btn btn-primary btn-md my-0 p" type="submit" onclick="#pay">Pagar
+          <i class="fas fa-shopping-cart ml-1"></i>
+        </button>
+        <a href="" onclick="#pay" class="btn btn-success float-right">Pagar</a>
         <div class="float-right" style="margin: 5px">
-          Total: <b>L {{total}}</b>
+          Total: <b>L {{distanceFixed total}}</b>
         </div>
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="pay"
+        <script src="https://js.stripe.com/v3"></script>
+        <button id="checkout-button">Pay</button>
+        <script src="https://js.stripe.com/v3" class="stripe-button" id="pay"
           data-key="pk_test_51H5lSsKfonblX5qI0sCP1COhpM4VSGbXq4QNpSmFJLJe8GktNh8U7N8CXI8X7QPIEuIr7T5TEMZiZozEnX0l1qPt00Qt1M1sv2"
-          data-amount={{total}} data-name=totalProd data-image="/img/logo2.png" data-locale="auto">
+          data-amount={{distanceFixed total}} data-name=totalProd data-image="/img/logo2.png" data-locale="auto">
           </script>
       </div>
     </div>

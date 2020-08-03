@@ -1,4 +1,5 @@
 const pool = require("../model/database");
+const priceDecimal = require("../helpers/total");
 const cart = {};
 
 cart.renderCarts = (req, res) => {
@@ -30,7 +31,6 @@ cart.addCart = async (req, res) => {
     qty,
     total: price * qty,
     url_image,
-
   });
   req.session.cart = carrito;
   res.redirect("/cart");

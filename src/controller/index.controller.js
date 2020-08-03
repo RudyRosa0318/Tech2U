@@ -14,7 +14,7 @@ indexc.obtenerProductoPorId = async (req, res, next) => {
   const { id } = req.params;
   try {
     const links = await pool.query(
-      "SELECT C.name AS category, P.idProduct, P.name, P.description, P.price, P.idCategory, P.url_image,P.idImage,P.created_at,P.update_at FROM product AS P INNER JOIN category AS C ON p.idCategory = C.idCategory WHERE idProduct = ?",
+      "SELECT C.name AS category, P.idProduct, P.name, P.description, P.price, P.idCategory, P.url_image,P.idImage,P.created_at,P.update_at FROM product AS P INNER JOIN category AS C ON P.idCategory = C.idCategory WHERE idProduct = ?",
       [id]
     );
     const carrito = req.session.cart;

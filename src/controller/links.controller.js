@@ -66,14 +66,13 @@ res.deleteLink = async (req, res) => {
     res.status(404);
     console.log(error);
   }
-
 };
 
 res.renderEditLink = async (req, res) => {
   const { idProduct, idCategory } = req.params;
   const category = await pool.query("SELECT * FROM category");
   const link = await pool.query(
-    "SELECT C.name AS category, P.idProduct, P.name, P.description, P.price, P.idCategory, P.url_image,P.idImage,P.qty,P.created_at,P.update_at FROM product AS P INNER JOIN category AS C ON p.idCategory = C.idCategory WHERE idProduct = ?",
+    "SELECT C.name AS category, P.idProduct, P.name, P.description, P.price, P.idCategory, P.url_image,P.idImage,P.qty,P.created_at,P.update_at FROM product AS P INNER JOIN category AS C ON P.idCategory = C.idCategory WHERE idProduct = ?",
     [idProduct]
   );
   const carrito = req.session.cart;
@@ -156,7 +155,10 @@ res.editLink = async (req, res) => {
           qty,
           url_image: url,
         };
-        await pool.query("UPDATE product set ? WHERE idProduct = ?", [newLink, idProduct]);
+        await pool.query("UPDATE product set ? WHERE idProduct = ?", [
+          newLink,
+          idProduct,
+        ]);
         req.flash("success", "Editado correctamente!");
         res.redirect("/links");
       } else {
@@ -169,7 +171,10 @@ res.editLink = async (req, res) => {
           qty,
           url_image: url,
         };
-        await pool.query("UPDATE product set ? WHERE idProduct = ?", [newLink, idProduct]);
+        await pool.query("UPDATE product set ? WHERE idProduct = ?", [
+          newLink,
+          idProduct,
+        ]);
         req.flash("success", "Editado correctamente!");
         res.redirect("/links");
       }
