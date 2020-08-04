@@ -36,4 +36,16 @@ cart.addCart = async (req, res) => {
   res.redirect("/cart");
 };
 
+cart.clearCart=(req,res)=>{
+  try {
+    req.session.cart = [];
+    req.flash("success", "¡Carrito vaciado correctamente!");
+        res.redirect("/");
+  } catch (error) {
+    req.flash("error",error);
+    res.redirect("/cart");
+  }
+}
+
+
 module.exports = cart;

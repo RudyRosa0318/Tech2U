@@ -28,11 +28,7 @@
                 {{distanceFixed total}}</strong></h6>
           </div>
 
-          <div class="col-2 col-sm-2 col-md-2 text-right">
-            <button type="button" class="btn btn-outline-danger btn-xs">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </button>
-          </div>
+
         </div>
         {{/each}}
       </div>
@@ -46,25 +42,29 @@
 
       <!-- END PRODUCT -->
       <hr>
+      <div class="col-2 col-sm-2 col-md-2 text-right">
+    
+          
+          <a href="/cart/clear" class="btn btn-outline-danger btn-xs"> Vaciar <i class="fa fa-trash" aria-hidden="true"></i> </a>
+      
+      </div>
       <hr>
     </div>
     <div class="card-footer">
-   
+
       <div class="float-right" style="margin: 10px">
-        <button class="btn btn-primary btn-md my-0 p" type="submit" onclick="#pay">Pagar
-          <i class="fas fa-shopping-cart ml-1"></i>
-        </button>
-        <a href="" onclick="#pay" class="btn btn-success float-right">Pagar</a>
+
         <div class="float-right" style="margin: 5px">
           Total: <b>L {{distanceFixed total}}</b>
         </div>
-        
-        <script src="https://js.stripe.com/v3"></script>
-        <button id="checkout-button">Pay</button>
-        <script src="https://js.stripe.com/v3" class="stripe-button" id="pay"
+
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="pay"
           data-key="pk_test_51H5lSsKfonblX5qI0sCP1COhpM4VSGbXq4QNpSmFJLJe8GktNh8U7N8CXI8X7QPIEuIr7T5TEMZiZozEnX0l1qPt00Qt1M1sv2"
-          data-amount={{distanceFixed total}} data-name=totalProd data-image="/img/logo2.png" data-locale="auto">
+          data-amount={{totalFixed total}} data-name="Realizar Pago" data-image="/img/logo2.png" data-locale="auto">
           </script>
+
+
       </div>
     </div>
   </div>
