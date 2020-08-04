@@ -28,12 +28,18 @@ indexc.obtenerProductoPorId = async (req, res, next) => {
 };
 indexc.obtenerProductoPorCategoria = async (req, res, next) => {
   const { id } = req.params;
+
   try {
     const links = await pool.query(
-      "SELECT C.name AS category, P.idProduct, P.name, P.description, P.price, P.idCategory, P.url_image,P.idImage,P.created_at,P.update_at FROM product AS P INNER JOIN category AS C ON P.idCategory = ?", [id]
+      "select * from product where idCategory = ?", [id]
+    );
+    const link = await pool.query(
+      "select * from category where idCategory = ?",
+      [id]
     );
     const carrito = req.session.cart;
-    res.render("categories_index", { links, carrito });
+    console.log(link);
+    res.render("categories_index", { links,link: link[0], carrito });
   } catch (error) {
     res.send(error);
   }
