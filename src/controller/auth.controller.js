@@ -42,8 +42,8 @@ log.out = (req, res) => {
 };
 
 log.superuser = async (req, res) => {
-  const {idUser } = req.params;
-  const {secretA,nameID} = req.body;
+  const { idUser } = req.params;
+  const { secretA, nameID } = req.body;
   if (secretA == process.env.ADMINPASS) {
     await pool.query("UPDATE users set userType= ? WHERE idUser = ?", [1, nameID]);
     req.flash("success", "Ahora eres Administrador!");
@@ -70,7 +70,7 @@ log.enviarToken = async (req, res, next) => {
     res.redirect("/restablecer_password");
   }
   const token = crypto.randomBytes(20).toString("hex");
-  const expiration = Date.now() + 3600000;
+  const expiration = new Date(Date().now + 3600000);
   // Limpiar los valores del token y de la expiración
   const newLinks = {
     token,
@@ -89,7 +89,7 @@ log.enviarToken = async (req, res, next) => {
   // Enviar el correo electrónico al usuario con el link que contiene
   // el token generado
   await enviarCorreo.enviarCorreo({
-    usuario:usuario[0],
+    usuario: usuario[0],
     subject: "Restablece tu contraseña de Tech2u",
     resetUrl,
     vista: "email_restablecer",
@@ -126,12 +126,12 @@ log.validarToken = async (req, res, next) => {
     if (!usuario[0]) {
       req.flash("error", "¡El enlace que seguiste no es válido!");
       res.redirect("/restablecer_password");
-    }else{
+    } else {
       // Si el usuario existe, mostrar el formulario de generar nueva contraseña
-    res.render("resetear_password", { token });
+      res.render("resetear_password", { token });
     }
 
-    
+
   } catch (error) {
     res.redirect("/signin");
   }
@@ -151,7 +151,7 @@ log.actualizarPassword = async (req, res, next) => {
       "error",
       "Token no válido o vencida. El token tiene 1 hora de validez"
     );
-    
+
     res.redirect("/restablecer_password");
   }
 
