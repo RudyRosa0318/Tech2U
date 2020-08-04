@@ -35,9 +35,14 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
-  const rows = await pool.query("SELECT * FROM users WHERE idUser = ?", [id]);
-  done(null, rows[0]);
-});
+  try{
+    const rows = await pool.query("SELECT * FROM users WHERE idUser = ?", [id]);
+    done(null, rows[0]);
+  }
+  catch (err) {
+    next(err);
+  
+}});
 
 //passport para login
 passport.use(
