@@ -10,7 +10,8 @@ const {
   renderDescription,
   obtenerProductoPorId,
   checkout,
-  renderCart
+  renderCart,
+  obtenerProductoPorCategoria
 
 } = require("../controller/index.controller");
 
@@ -19,6 +20,8 @@ router.get("/", renderIndex);
 router.get("/description/:id", obtenerProductoPorId);
 
 router.post("/checkout/:id", checkout)
+
+router.get("/categories_index/:id",obtenerProductoPorCategoria);
 
 
 module.exports = router;
