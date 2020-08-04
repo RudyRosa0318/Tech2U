@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,15 +15,23 @@
     </style>
     <title>Reestablece tu contraseña de Tech2u</title>
 </head>
+
 <body>
+    <div class="text-center"><img src="/img/logo_icono.ico" alt="Tech2u" class="text-center image-fluid"></div>
+
     <h2>Reestablece tu contraseña</h2>
-    <p>¡Un gusto saludarte {{fullname}}! Vemos que has solicitado reestablecer tu contraseña, para poder realizarlo deberás hacer clic en el botón inferior para poder reestablecer tu contraseña.</p>
-    <p>Ten en cuenta que este enlace es temporal, así que si se vence, podrás volver a solitarlo.</p>
-
-    <a href="{{resetUrl}}">Reestablece tu contraseña</a>
-
+    <p>¡Hola {{fullname}}! Al parecer has solicitado reestablecer tu contraseña de Tech2u.com. <br> Solo Haz clic en el
+        boton de abajo para poder reestablecerla .</p>
+    <div class="alert alert-warning " role="alert">
+        Ten en cuenta que este enlace es temporal, así que si se vence, podrás volver a solitarlo.
+        <a class="btn btn-success btn-block" href="{{resetUrl}}">Reestablece tu contraseña</a>
+    </div>
     <p>Si no puedes acceder al enlace, copiar el siguiente enlace una pestaña del navegador: {{resetUrl}}</p>
     <p>Si no solicitaste reestablecer tu contraseña, puedes ignorar este correo.</p>
     <p>No responda este correo.</p>
+    <p>Los mejores deseos,</p>
+    <div class="text-left"><img src="/img/name.png" alt="Tech2u" class="image-fluid img-thumbnail"
+            style="height: 80px;"></div>
 </body>
+
 </html>
