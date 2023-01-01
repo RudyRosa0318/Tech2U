@@ -40,8 +40,8 @@
     "stripe": "^8.75.0",
     "sweetalert2": "^9.17.1",
     "timeago.js": "^4.0.2",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
